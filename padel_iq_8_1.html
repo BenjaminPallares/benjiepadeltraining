@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071921">
+<title>PADEL IQ 8.1 · Un juego completo</title>
+<style>
+:root{color-scheme:dark;--bg:#071820;--pane:#112a32;--pane2:#0b212a;--stroke:#31545a;--text:#eef9f6;--muted:#a6c4c6;--lime:#d8fa85;--aqua:#70e4e4;--amber:#ffbc82;--red:#ff8d90}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -15%,#205057 0,transparent 45%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--aqua);outline-offset:3px}button:disabled{opacity:.37;cursor:not-allowed}input[type=checkbox]{accent-color:var(--lime)}.app{max-width:1530px;margin:auto;padding:24px}.masthead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:19px}.brand{display:flex;align-items:center;gap:13px}.mark{width:49px;height:49px;display:grid;place-items:center;font-size:28px;font-weight:950;color:#11231c;background:var(--lime);border-radius:16px;transform:rotate(-8deg)}.mark span{transform:rotate(8deg)}.over{color:var(--lime);font-size:10px;font-weight:900;letter-spacing:.21em;margin:0 0 3px;text-transform:uppercase}.brand h1{font-size:clamp(23px,2vw,33px);line-height:1;margin:0;letter-spacing:-.065em;font-weight:950}.brand h1 em{font-style:normal;color:var(--lime)}.brand h1 small{font-size:13px;font-weight:700;letter-spacing:0;color:#a1bbbd}.chips{display:flex;gap:9px}.chip{border:1px solid #385961;border-radius:40px;padding:8px 12px;color:#c4dcdb;font-size:11px;font-weight:800}.main{display:grid;grid-template-columns:minmax(220px,272px) minmax(380px,1fr) minmax(300px,360px);gap:15px;align-items:start}.panel{border:1px solid #2a4a52;border-radius:20px;background:linear-gradient(145deg,#132d36,#0b2029);box-shadow:0 15px 40px #0003;overflow:hidden}.pad{padding:20px}.minor{font-size:10px;font-weight:950;color:#9ebfc1;letter-spacing:.17em;text-transform:uppercase;margin:0 0 14px}.panel h2{font-size:17px;margin:0 0 18px;font-weight:900;letter-spacing:-.025em}.field{margin-bottom:19px}.field label,.field .field-label{display:block;font-size:12px;font-weight:850;color:#deeeeb;margin-bottom:8px}.note{color:var(--muted);font-size:11px;line-height:1.6}.numberrow{display:flex;gap:9px;align-items:center}.numberrow input{border:1px solid #43646a;background:#081d25;border-radius:12px;padding:12px;color:#f5fcfa;font-size:20px;font-weight:900;width:100%;min-width:0}.numberrow span{font-size:11px;color:#9bb7ba;flex:0 0 86px}select{width:100%;border:1px solid #42636a;border-radius:12px;padding:12px;background:#081d25;color:var(--text);font-size:12px;font-weight:750}.speed{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;background:#081d25;border:1px solid #385a60;padding:4px;border-radius:12px}.speed button{border:0;background:none;color:#9ab7bb;padding:10px 3px;font-size:11px;font-weight:850;border-radius:9px}.speed button.active{background:#28525a;color:#fff}.toggle{display:flex;align-items:flex-start;gap:10px;cursor:pointer}.toggle input{width:18px;height:18px;margin:2px 0 0}.toggle span{font-size:12px;line-height:1.5;color:#c4d9da}.primary{width:100%;background:var(--lime);color:#14261c;padding:14px 12px;font-size:13px;font-weight:950;border:0;border-radius:12px;box-shadow:0 5px 26px #d8fa8518}.primary:not(:disabled):hover{filter:brightness(1.07)}.outline{background:#143740;color:#e6f7f4;border:1px solid #416e75;border-radius:11px;padding:10px 12px;font-weight:850;font-size:12px}.guide{border-top:1px solid #2d4a53;margin-top:22px;padding-top:16px}.guide p{font-size:11px;color:#abc7c9;line-height:1.65;margin:9px 0}.guide b{color:#effdfa}.guide strong{color:var(--lime)}.keycap{display:inline-flex;border:1px solid #4d7275;border-radius:5px;min-width:20px;justify-content:center;padding:1px 5px;color:#e4f6ef;font-weight:850;background:#16313b}.courtpanel{padding:13px 13px 14px}.courtbar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:5px 5px 12px}.courtbar b{font-size:12px;letter-spacing:.04em}.courtbar p{font-size:11px;color:#a5c2c4;margin:5px 0 0}.phase{color:var(--lime);border:1px solid #5a785b;border-radius:30px;padding:8px 10px;font-size:10px;font-weight:900;letter-spacing:.065em;white-space:nowrap}.canvaswrap{position:relative;background:#092029;border:1px solid #355960;border-radius:14px;overflow:hidden}.canvaswrap canvas{width:100%;height:auto;display:block;touch-action:manipulation}canvas.moving{touch-action:none;cursor:grab}canvas.dragging{cursor:grabbing}.court-note{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);width:max-content;max-width:95%;font-size:11px;text-align:center;font-weight:850;background:#071d26dc;color:#ecfff5;border:1px solid #406268;border-radius:10px;padding:10px 12px;pointer-events:none}.legend{display:flex;justify-content:space-between;gap:5px;margin-top:12px;color:#afcacc;font-size:10px;flex-wrap:wrap}.leg{display:flex;align-items:center;gap:5px}.circle{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--aqua)}.circle.opp{background:#ffc18a}.circle.ball{background:var(--lime)}.courtfoot{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:15px;flex-wrap:wrap}.smallkeys{color:#98b7ba;font-size:10px;line-height:1.7}.courtfoot .outline{padding:8px 10px}.right .pad{padding:19px}.prog-head{display:flex;align-items:end;justify-content:space-between;gap:10px}.prog-head big{font-size:27px;font-weight:950;letter-spacing:-.055em}.prog-head span{font-size:12px;color:#a5c0c4}.track{margin-top:9px;height:8px;background:#163941;border-radius:20px;overflow:hidden}.fill{width:0;height:100%;background:linear-gradient(90deg,#62d9e5,var(--lime));border-radius:20px;transition:width .2s}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:15px 0}.stat{background:#0b232b;border:1px solid #32535b;border-radius:10px;padding:10px}.stat b{font-size:23px;font-weight:950;display:block;line-height:1.15}.stat:nth-child(1) b{color:var(--lime)}.stat:nth-child(2) b{color:#ffac9e}.stat:nth-child(3) b{color:var(--aqua)}.stat small{font-size:10px;color:#a6c6c5}.info{background:#0a232d;border:1px solid #31555d;border-radius:12px;padding:12px;margin:14px 0}.info h3{font-size:14px;margin:0 0 6px;line-height:1.4}.info p{margin:0;color:#b7d0d0;font-size:11px;line-height:1.55}.pillrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.pill{border:1px solid #4a6770;background:#163940;padding:5px 7px;border-radius:7px;font-size:10px;font-weight:900}.pill.lob{color:#ffe3a2;border-color:#8c7048;background:#423829}.pill.flat{color:#a8f6ec}.pill.net{color:#d9ffa2;border-color:#638a64}.row-label{display:flex;align-items:center;justify-content:space-between;margin:15px 0 8px;gap:8px}.row-label strong{font-size:12px}.row-label small{font-size:10px;color:#a4bfc3}.ordinal{background:#285057;color:var(--lime);display:inline-grid;place-items:center;width:21px;height:21px;border-radius:7px;margin-right:6px}.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.options.three{grid-template-columns:repeat(3,minmax(0,1fr))}.choice{background:#0c2730;border:1px solid #3a5e64;color:#e5f5f1;border-radius:11px;padding:11px 6px;min-height:53px;text-align:center;font-size:12px;font-weight:900;transition:background .13s}.choice small{display:block;color:#a0bcc0;font-size:10px;margin-top:3px;font-weight:650}.choice .arrow{font-size:20px;display:block;line-height:1.3;margin-bottom:5px}.choice.selected{background:#244b44;color:#f9ffe7;border-color:var(--lime);box-shadow:inset 0 0 0 1px #9dd780}.choice.flat.selected{background:#184e52;border-color:#9de4e7}.hit{margin-top:14px}.feedback{margin-top:14px;padding:13px;background:#132e36;border:1px solid #3d6469;border-radius:11px;min-height:80px}.feedback h3{font-size:13px;margin:0 0 6px}.feedback p{margin:0;font-size:11px;color:#c1d7d5;line-height:1.6}.feedback.good{border-color:#638c64;background:#1d3529}.feedback.good h3{color:var(--lime)}.feedback.bad{border-color:#996965;background:#38282b}.feedback.bad h3{color:#ffa7a4}.feedback.neutral{border-color:#947b56;background:#342d24}.feedback.neutral h3{color:#ffcb87}.log{margin-top:17px;border-top:1px solid #30525a;padding-top:14px}.log p{margin:0 0 10px}.loglist{display:flex;gap:6px;flex-wrap:wrap;min-height:29px}.logitem{padding:7px 9px;border:1px solid #4b6c71;border-radius:7px;font-size:10px;color:#c4d9db}.logitem.won{color:#d8fa9e;border-color:#688260;background:#1e382b}.logitem.lost{color:#ffc1b1;border-color:#9b6b66;background:#3b2b2b}.footer{text-align:center;color:#87a7aa;font-size:11px;margin:17px 0;line-height:1.6}.footer strong{color:#c2d9d9}.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.movement-box{border:1px solid #38676d;background:#102e37;border-radius:13px;padding:12px;margin:12px 0 4px}.movement-box .row-label{margin:0 0 9px}.movement-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}.movement-grid .choice{font-size:10px;min-height:53px;padding:7px 3px}.movement-grid .choice b{font-size:17px;display:block}.movement-select{display:flex;gap:6px;margin-bottom:9px}.movement-select .choice{flex:1;min-height:39px;padding:8px}.move-state{font-size:11px;color:#b8dcdf;line-height:1.55;background:#09252d;border-radius:9px;padding:9px;margin-top:8px}.move-state strong{color:#e3ffa5}.warn{color:#ffbba7!important}.movement-info{font-size:11px;line-height:1.55;color:#b1d1d2;margin:7px 0 9px}.movement-grid .choice:disabled{opacity:.4}@media(max-width:1230px){.main{grid-template-columns:240px minmax(360px,1fr)}.settings{grid-column:1;grid-row:1}.courtpanel{grid-column:2;grid-row:1/span 2}.right{grid-column:1;grid-row:2}.right .pad{padding:16px}}
+@media(max-width:760px){.app{padding:13px 10px}.masthead{margin-bottom:15px}.chips{display:none}.brand h1 small{display:block;margin-top:6px}.main{display:flex;flex-direction:column;gap:11px}.panel{width:100%}.settings{order:1}.courtpanel{order:2}.right{order:3}.pad{padding:16px}.courtpanel{padding:9px}.courtbar{padding:7px 6px}.courtbar b{font-size:11px}.courtbar p{font-size:10px}.phase{font-size:9px;padding:7px}.court-note{font-size:10px;padding:7px}.options.three .choice{font-size:11px}.legend{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.choice,.fill{transition:none}}
+
+/* Durante el juego no se necesita el panel de configuración. */
+.app.playing .settings{display:none!important}
+.app.playing .main{grid-template-columns:minmax(420px,1fr) minmax(300px,370px)}
+.app.playing .courtpanel,.app.playing .right{grid-column:auto;grid-row:auto}
+.app.playing .courtpanel{min-width:0}
+.game-actions{display:flex;gap:7px;flex-wrap:wrap}
+.wall-choice{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.wall-choice .choice{min-height:59px;font-size:11px;padding:8px 4px}
+.wall-choice .choice b{display:block;font-size:17px;margin-bottom:3px}
+.field-help{font-size:10px;color:#b7cfd0;margin:5px 0 0;line-height:1.45}
+.serve-chip{display:inline-flex;align-items:center;gap:5px;border:1px solid #648373;border-radius:20px;padding:7px 11px;color:#e6ffb1;font-weight:850;font-size:10px;background:#153832}
+.point-overlay{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;background:#03151bce;backdrop-filter:blur(6px);padding:16px}
+.point-overlay.show{display:flex}
+.point-dialog{width:min(460px,100%);background:linear-gradient(155deg,#163942,#081e26);border:1px solid #5b8285;border-radius:26px;padding:30px 26px;text-align:center;box-shadow:0 28px 90px #000a;animation:point-pop .2s ease-out}
+.point-dialog.won{border-color:#c9ed8d}.point-dialog.lost{border-color:#f0a29d}
+.point-emoji{font-size:46px;line-height:1.15;margin-bottom:8px}
+.point-dialog h2{font-size:clamp(25px,6vw,37px);margin:0 0 11px;line-height:1.15;letter-spacing:-.045em}
+.point-dialog.won h2{color:#d8fa85}.point-dialog.lost h2{color:#ffb5b0}
+.point-dialog p{color:#c9e2e1;line-height:1.6;font-size:14px;margin:0 0 16px}
+.point-score{background:#08252b;border:1px solid #325b61;border-radius:13px;padding:12px 14px;margin-bottom:20px;font-weight:850;font-size:13px}
+.point-dialog .primary{font-size:15px;min-height:48px}
+@keyframes point-pop{from{opacity:.4;transform:translateY(14px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:1100px){.app.playing .main{grid-template-columns:minmax(360px,1fr) minmax(280px,350px)}}
+@media(max-width:760px){.app.playing .main{display:flex;flex-direction:column}.app.playing .courtpanel{order:1}.app.playing .right{order:2}.game-actions{width:100%}.point-dialog{padding:24px 18px}}
+@media(min-width:761px){.app.playing .canvaswrap{max-width:690px;margin-inline:auto}}
+@media(prefers-reduced-motion:reduce){.point-dialog{animation:none}}
+.one-game-config{padding:15px 14px;border-radius:13px;border:1px solid #6a8e6c;background:#1a3530;display:flex;gap:13px;align-items:center}
+.one-game-config strong{font-size:19px;color:var(--lime);white-space:nowrap}
+.one-game-config span{font-size:11px;color:#bbd6d0;line-height:1.55}
+.scoreboard{margin:0 0 16px;padding:14px;background:linear-gradient(135deg,#183940,#0a242d);border:1px solid #648080;border-radius:14px}
+.score-title{text-transform:uppercase;font-size:10px;letter-spacing:.14em;color:#b1d6d0;font-weight:900;margin:0 0 11px}
+.score-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:6px 0;padding:8px 11px;background:#0b2630;border:1px solid #34585f;border-radius:10px;font-weight:800;font-size:13px}
+.score-row strong{min-width:87px;text-align:right;font-size:23px;font-variant-numeric:tabular-nums;color:#effff4}
+.score-row.mine strong{color:var(--lime)}
+.score-row small{display:block;color:#97bac0;font-size:10px;margin-top:3px;font-weight:650}
+.score-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-top:10px;font-size:10px;color:#b5d8d5}
+.score-bottom strong{color:#fff2ac}
+.tactic-tip{padding:9px 11px;margin:8px 0 0;font-size:11px;background:#113539;color:#bdf4ec;border:1px solid #366b6c;border-radius:10px;line-height:1.5}.tactic-tip.warning{color:#ffe5ae;background:#3d3220;border-color:#9d7949}.shots .choice{min-height:61px}.pill.chiquita{background:#123d38;color:#a9f6df;border-color:#3e8f85}.pill.drop{background:#483045;color:#ffd0ed;border-color:#906587}</style>
+</head>
+<body>
+<div class="app" id="appRoot">
+<header class="masthead"><div class="brand"><div class="mark"><span>↗</span></div><div><p class="over">Entrenador de lectura táctica · 2 contra 2</p><h1>PADEL <em>IQ</em> <small>8.1 / UN JUEGO</small></h1></div></div><div class="chips"><span class="chip">● 100 % sin conexión</span><span class="chip">Un solo archivo HTML</span></div></header>
+<main class="main">
+<section class="panel settings" id="settings"><div class="pad">
+<p class="minor">01 / Un juego de pádel</p><h2>Configura un solo juego</h2>
+<div class="field"><div class="field-label">Duración del entrenamiento</div><div class="one-game-config"><strong>1 JUEGO</strong><span>0 · 15 · 30 · 40 · ventajas. Termina cuando una pareja gana el juego por dos puntos de diferencia, sin jugar set ni partido.</span></div></div>
+<div class="field"><label for="rivalStyle">Tipo de pelotas rivales</label><select id="rivalStyle"><option value="mixed">Lectura táctica profesional (recomendado)</option><option value="lobs">Más globos · únicamente ante rivales adelantados</option><option value="flat">Más juego bajo · planos y chiquitas</option></select></div>
+<div class="field"><label for="firstServe">Pareja que saca durante el juego</label><select id="firstServe"><option value="away">Rivales</option><option value="home">Tu pareja</option></select></div>
+<div class="field"><label for="driveHand">Rival de drive (R1, arriba a la izquierda)</label><select id="driveHand"><option value="right">Diestro</option><option value="left">Zurdo</option></select><p class="field-help">La pala de R1 se dibuja en la mano elegida. El rival de revés (R2) es diestro por defecto. Su lateralidad también influye en la dificultad de algunas devoluciones.</p></div>
+<div class="field"><div class="field-label">Velocidad de la animación</div><div class="speed" role="group" aria-label="Velocidad"><button type="button" data-speed="slow">Lenta</button><button type="button" data-speed="normal" class="active">Normal</button><button type="button" data-speed="fast">Rápida</button></div></div>
+<div class="field"><label class="toggle"><input id="guided" type="checkbox"><span><b>Modo entrenador</b><br>Recibe una recomendación de jugador, colocación y golpe.</span></label></div>
+<button class="primary" id="startBtn" type="button">▶ Comenzar juego</button>
+<div class="guide"><p class="minor">Cómo se juega</p><p><strong>1.</strong> Observa la posición de ambas parejas y si el rival envía un <b>plano, globo, chiquita o dejada</b>.</p><p><strong>2.</strong> <b>Arrastra directamente J1 y J2 sobre la pista</b> para colocarlos. A continuación, selecciona quién golpea, el <b>destino</b> y <b>plano, globo, chiquita o dejada</b>.</p><p><strong>3.</strong> Un plano desde la red se ejecuta como <b>volea</b>. Ante un globo profundo, el receptor debe <b>retroceder</b>.</p><p><strong>4.</strong> Una chiquita baja a los pies del rival de red te ayuda a recuperar la iniciativa; la dejada busca sorprender a un equipo alejado de la red. Puedes ganar, perder o continuar el punto según las posiciones y las decisiones. Se entrena un único juego con marcador reglamentario: 0, 15, 30, 40 e iguales/ventaja. Saca la misma pareja durante todo el juego y se alterna el lado derecho e izquierdo en cada punto. En cada saque, el restador parte del fondo, el sacador sube automáticamente a la red y la pelota bota largo en el cuadro cruzado, hacia la T o el cristal lateral.</p><p><b>Atajos:</b> <span class="keycap">1</span>/<span class="keycap">2</span> jugador · <span class="keycap">A</span>/<span class="keycap">S</span>/<span class="keycap">D</span> destino · <span class="keycap">P</span> plano · <span class="keycap">G</span> globo · <span class="keycap">Q</span> chiquita · <span class="keycap">E</span> dejada · <span class="keycap">Enter</span> golpear.</p></div>
+</div></section>
+<section class="panel courtpanel"><div class="courtbar"><div><b>SIMULACIÓN DE PÁDEL</b><p id="courtSubtitle">Arrastra directamente a J1 y J2 · tu pareja está abajo · 20 × 10 m</p></div><span class="phase" id="phaseLabel">LISTO PARA JUGAR</span></div>
+<div class="canvaswrap"><canvas id="court" width="800" height="1010" role="img" aria-label="Pista de pádel interactiva vista desde arriba con dos jugadores por pareja y trayectoria de la pelota"></canvas><div class="court-note" id="canvasNote">Pulsa «Iniciar entrenamiento»</div></div>
+<div class="legend"><span class="leg"><i class="circle"></i> Tu pareja (J1/J2)</span><span class="leg"><i class="circle opp"></i> Rivales (R1/R2)</span><span class="leg"><i class="circle ball"></i> Pelota</span><span class="leg">⤴ Globo · ⇣ Chiquita · ⌁ Dejada</span></div>
+<div class="courtfoot"><span class="smallkeys" id="statusLine">Arrastra los jugadores para colocarlos · juego táctico simulado</span><div class="game-actions"><button class="outline" type="button" id="pauseBtn" disabled>⏸ Pausa</button><button class="outline" type="button" id="restartBtn">↻ Reiniciar</button><button class="outline" type="button" id="settingsBtn">⚙ Configuración</button></div></div>
+</section>
+<aside class="panel right"><div class="pad"><p class="minor">02 / Analiza y responde</p>
+<div class="scoreboard" aria-label="Marcador del juego" aria-live="polite">
+ <p class="score-title">MARCADOR · JUEGO ÚNICO</p>
+ <div class="score-row mine"><span>🔵 Tu pareja<small id="myRole">Resta</small></span><strong id="homeGameScore">0</strong></div>
+ <div class="score-row"><span>🟠 Rivales<small id="rivalRole">Saca</small></span><strong id="awayGameScore">0</strong></div>
+ <div class="score-bottom"><span id="scoreDetail">0-0 · Comienza el juego</span><strong id="serverDetail">Saca R1 · Lado derecho</strong></div>
+</div>
+<div class="prog-head"><div><span>GOLPES ENTRENADOS</span><div><big id="counter">0</big><span id="totalText"> devoluciones</span></div></div><span id="percent">0 puntos</span></div>
+<div class="stats"><div class="stat"><b id="wonCount">0</b><small>Puntos ganados</small></div><div class="stat"><b id="lostCount">0</b><small>Puntos perdidos</small></div><div class="stat"><b id="goodCount">0</b><small>Decisiones buenas</small></div></div>
+<div class="info" id="scenario"><h3>🎾 Preparado para entrenar</h3><p>El rival decide entre plano, globo, chiquita y dejada analizando las posiciones de los cuatro jugadores. El globo no se utiliza cuando los dos receptores están atrás. Tú puedes elegir los mismos golpes.</p></div>
+<div class="row-label"><strong><span class="ordinal">1</span> ¿Quién responde?</strong><small>Tu pareja (azul)</small></div><div class="options"><button type="button" id="player1" class="choice" data-player="0" disabled>● Jugador 1<small id="p1pos">Fondo</small></button><button type="button" id="player2" class="choice" data-player="1" disabled>● Jugador 2<small id="p2pos">Fondo</small></button></div>
+<div class="movement-box">
+<div class="row-label"><strong><span class="ordinal">2</span> Arrastra tus jugadores</strong><small>Directamente en la pista</small></div>
+<p class="movement-info"><b>Presiona sobre J1 o J2 y arrástralo</b> hasta donde quieras colocarlo. Puedes mover a ambos, incluso varias veces. <b>Toca al jugador sin desplazarlo</b> si quieres que mantenga su posición. La línea discontinua muestra el recorrido.</p>
+<div id="moveStatus" class="move-state" role="status">Comienza el juego para mover a tus jugadores directamente sobre la pista.</div>
+<button type="button" id="clearMoves" class="outline" style="margin-top:9px;font-size:10px;padding:8px" disabled>↺ Restablecer posiciones</button>
+</div>
+<div class="row-label"><strong><span class="ordinal">3</span> ¿Adónde la envías?</strong><small>Campo rival</small></div><div class="options three"><button type="button" class="choice" data-zone="0" disabled><span class="arrow">↖</span>Izquierda</button><button type="button" class="choice" data-zone="1" disabled><span class="arrow">↑</span>Centro</button><button type="button" class="choice" data-zone="2" disabled><span class="arrow">↗</span>Derecha</button></div>
+<div class="row-label"><strong><span class="ordinal">4</span> ¿Qué golpe haces?</strong><small>4 opciones tácticas</small></div><div class="options shots"><button type="button" class="choice flat" data-shot="flat" disabled>➜ Plano / volea<small id="flatHint">Volea si estás en la red</small></button><button type="button" class="choice" data-shot="lob" disabled>⤴ Globo<small>Superar jugadores en red</small></button><button type="button" class="choice" data-shot="chiquita" disabled>⇣ Chiquita<small>Bola suave a los pies</small></button><button type="button" class="choice" data-shot="drop" disabled>⌁ Dejada<small>Justo detrás de la red</small></button></div><p class="field-help">La chiquita es un golpe de construcción desde atrás; la dejada es un recurso de ataque, preferentemente desde la red.</p><p class="tactic-tip" id="tacticTip" aria-live="polite">Elige el golpe que aproveche la posición de los rivales.</p>
+<div class="row-label"><strong><span class="ordinal">5</span> ¿Buscas la pared lateral?</strong><small>Solo con plano al lado</small></div>
+<div class="wall-choice" role="group" aria-label="Objetivo de pared lateral"><button class="choice selected" data-wall="none" type="button"><b>↗</b>Sin pared</button><button class="choice" data-wall="glass" type="button"><b>▧</b>Cristal lateral</button><button class="choice" data-wall="fence" type="button"><b>▤</b>Reja lateral</button></div>
+<p id="wallHelp" class="field-help">Para buscar el cristal o la reja, juega plano a izquierda o derecha. Primero bota en campo rival y después toca la pared.</p>
+<button type="button" class="primary hit" id="hitBtn" disabled>Arrastra al receptor y elige destino y golpe</button>
+<div class="feedback" id="feedback" role="status" aria-live="polite"><h3>Consejo del entrenador</h3><p>Globo si los rivales dominan la red; plano profundo si están al fondo; chiquita desde atrás a los pies de un rival adelantado; dejada desde la red si ambos están lejos.</p></div>
+<div class="log"><p class="minor">Historial de puntos</p><div class="loglist" id="history"><span class="note">Sin puntos finalizados todavía.</span></div></div>
+</div></aside>
+</main>
+<div id="pointOverlay" class="point-overlay" role="presentation" aria-hidden="true"><div id="pointDialog" class="point-dialog" role="dialog" aria-modal="true" aria-labelledby="pointTitle" aria-describedby="pointDetail"><div id="pointEmoji" class="point-emoji">🏆</div><h2 id="pointTitle">Punto finalizado</h2><p id="pointDetail"></p><div id="pointScore" class="point-score"></div><button id="nextPointBtn" type="button" class="primary">▶ Siguiente punto</button></div></div>
+<footer class="footer">PADEL IQ 8.1 · <strong>Modelo de lectura táctica con reglas interpretables</strong>: se valoran distancias, posición, tipo de golpe y espacios libres. El motor rival usa ocupación de pista, iniciativa, cobertura y golpe previo; las trayectorias son pedagógicas, no física real.</footer>
+</div>
+<script>
+(() => {
+'use strict';
+const $=id=>document.getElementById(id);
+const canvas=$('court'),ctx=canvas.getContext('2d');
+const W=800,H=1010,COURT={x:181,y:66,w:438,h:876};
+const X=x=>COURT.x+x*COURT.w, Y=y=>COURT.y+y*COURT.h;
+const clamp=(x,lo,hi)=>Math.max(lo,Math.min(hi,x));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const distance=(a,b)=>Math.hypot((a.x-b.x)*10,(a.y-b.y)*20);
+const speedFactor={slow:1.5,normal:1,fast:.61};
+const labelsZone=['izquierda','centro','derecha'];
+const SHOT_NAMES={flat:'plano',lob:'globo',chiquita:'chiquita',drop:'dejada',serve:'saque'};
+const shotName=k=>SHOT_NAMES[k]||k;
+const settings={style:'mixed',speed:'normal',guided:false,firstServe:'away',driveHand:'right'};
+const state={phase:'idle',count:0,won:0,lost:0,good:0,point:0,rally:0,gameWinner:null,serveSide:'right',home:[],away:[],scenario:null,motion:null,
+ player:null,mover:null,planned:[null,null],zone:null,shot:null,ball:{x:.5,y:.5,h:0,visible:false},animation:null,pending:null,
+ previous:null,history:[],pause:false,pausedAt:0,phaseStart:0,duration:0,feedback:'',lastResult:null,wall:'none',serveTeam:'away',servePlayer:0,servePlan:null,serveBag:[],serveHistory:[],waitingForNext:false};
+const playerBtns=[$('player1'),$('player2')],zoneBtns=[...document.querySelectorAll('[data-zone]')],shotBtns=[...document.querySelectorAll('[data-shot]')],wallBtns=[...document.querySelectorAll('[data-wall]')];
+const clone=p=>({x:p.x,y:p.y});
+const posName=p=>p.y<.69?'En la red':p.y>.81?'En el fondo':'Media pista';
+const enemyPosName=p=>p.y>.31?'En la red':p.y<.23?'En el fondo':'Media pista';
+const netHome=p=>p.y<.69, netAway=p=>p.y>.31;
+const deterministic=(n)=>{const v=Math.sin(n*91.157+3.743)*43758.5453;return v-Math.floor(v)};
+// Un juego tradicional con ventajas. El primero que alcanza al menos 4 puntos
+// y supera al contrario por 2 gana el ÚNICO juego (sin sets ni tie-breaks).
+function gameWinner(){
+ if(state.won>=4&&state.won-state.lost>=2)return 'home';
+ if(state.lost>=4&&state.lost-state.won>=2)return 'away';
+ return null;
+}
+function gameScores(){
+ const a=state.won,b=state.lost,normal=['0','15','30','40'];
+ const winner=gameWinner();
+ if(winner)return {home:winner==='home'?'JUEGO':normal[Math.min(a,3)],away:winner==='away'?'JUEGO':normal[Math.min(b,3)],detail:winner==='home'?'¡GANAS EL JUEGO!':'LOS RIVALES GANAN EL JUEGO'};
+ if(a>=3&&b>=3){
+  if(a===b)return {home:'40',away:'40',detail:'IGUALES · 40-40'};
+  if(a>b)return {home:'VENTAJA',away:'40',detail:gameWinner()?'JUEGO PARA TU PAREJA':'VENTAJA · TU PAREJA'};
+  return {home:'40',away:'VENTAJA',detail:gameWinner()?'JUEGO PARA LOS RIVALES':'VENTAJA · RIVALES'};
+ }
+ return {home:normal[Math.min(a,3)],away:normal[Math.min(b,3)],detail:'Puntos: '+a+' – '+b};
+}
+function resetPositions(){
+ // Antes de cada servicio, las dos parejas esperan en el fondo. startService
+ // coloca al equipo que saca y deja a los DOS restadores detrás de la línea de saque.
+ state.home=[{x:.27,y:.87},{x:.73,y:.87}];
+ state.away=[{x:.27,y:.13},{x:.73,y:.13}];
+}
+function changePhase(phase,duration=0){state.phase=phase;state.phaseStart=performance.now();state.duration=duration;state.pause=false;syncUI();}
+function updateScenario(title,detail,pills=[]){$('scenario').innerHTML='<h3>'+esc(title)+'</h3><p>'+esc(detail)+'</p>'+(pills.length?'<div class="pillrow">'+pills.map(p=>'<span class="pill '+esc(p.css||'')+'">'+esc(p.text)+'</span>').join('')+'</div>':'');}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function feedback(title,body,kind=''){$('feedback').className='feedback '+kind;$('feedback').innerHTML='<h3>'+esc(title)+'</h3><p>'+esc(body)+'</p>';}
+function destinationFor(i){return state.planned[i]||state.home[i];}
+function travelLimit(i){
+ if(!state.scenario)return 0;
+ const k=state.scenario.kind;
+ if(k==='lob')return i===state.player?8.3:5.8;
+ if(k==='drop')return i===state.player?6.6:5.4; // corta pero lenta; exige correr hacia delante
+ if(k==='chiquita')return i===state.player?4.9:4.25; // pelota baja a los pies, requiere reacción
+ return i===state.player?5.75:4.65;
+}
+function travelDist(i){return state.home[i]&&state.planned[i]?distance(state.home[i],state.planned[i]):0;}
+function syncUI(){
+ const choosing=state.phase==='choose'&&!state.pause;
+ for(let i=0;i<2;i++){
+  playerBtns[i].disabled=!choosing;playerBtns[i].classList.toggle('selected',i===state.player);
+  playerBtns[i].setAttribute('aria-pressed',String(i===state.player));
+  $('p'+(i+1)+'pos').textContent=state.home[i]?posName(destinationFor(i)):'Fondo';
+ }
+ $('clearMoves').disabled=!choosing||state.planned.every(x=>x===null);
+ canvas.classList.toggle('moving',choosing);
+ zoneBtns.forEach((b,i)=>{b.disabled=!choosing;b.classList.toggle('selected',state.zone===i);b.setAttribute('aria-pressed',String(state.zone===i));});
+ shotBtns.forEach(b=>{b.disabled=!choosing||(state.wall!=='none'&&b.dataset.shot!=='flat');b.classList.toggle('selected',state.shot===b.dataset.shot);b.setAttribute('aria-pressed',String(state.shot===b.dataset.shot));});
+ wallBtns.forEach(b=>{b.disabled=!choosing;b.classList.toggle('selected',state.wall===b.dataset.wall);b.setAttribute('aria-pressed',String(state.wall===b.dataset.wall));});
+ $('wallHelp').textContent=state.wall==='none'?'Sin rebote lateral: pelota directa al rival.':state.zone===1?'Selecciona izquierda o derecha: la pared lateral nunca es el centro.':state.wall==='glass'?'Cristal: bote previo y rebote lateral relativamente predecible.':'Reja: bote previo y rebote lateral irregular, con más riesgo y sorpresa.';
+ const haveMovement=state.player!==null&&state.planned[state.player]!==null;
+ const complete=choosing&&haveMovement&&state.zone!==null&&state.shot!==null&&(state.wall==='none'||(state.shot==='flat'&&state.zone!==1));
+ $('hitBtn').disabled=!complete;
+ $('hitBtn').textContent=complete?'🎾 ¡EJECUTAR '+shotName(state.shot).toUpperCase()+'!':choosing?'Arrastra al receptor y elige destino y golpe':'Pelota en juego…';
+ if(choosing){
+   const lines=state.home.map((p,i)=>{
+    const target=state.planned[i];if(!target)return 'J'+(i+1)+': sin arrastrar (mantiene su posición)';
+    const meters=travelDist(i),unreachable=meters>travelLimit(i),atBall=state.scenario&&distance(target,state.scenario.to)<=1.5;
+    return 'J'+(i+1)+': '+meters.toFixed(1)+' m '+(unreachable?'⚠ fuera de alcance':(i===state.player?(atBall?'✓ preparado para golpear':'⚠ lejos de la pelota'):'✓ movimiento marcado'));
+   });
+   $('moveStatus').innerHTML='<strong>'+(state.mover===null?'Arrastra el círculo de J1 o J2 en la pista.':'Último jugador movido: J'+(state.mover+1)+'. Arrastra cualquiera de los dos para reajustar.')+'</strong><br>'+lines.map(esc).join('<br>');
+ }else $('moveStatus').textContent=state.phase==='idle'?'Comienza el juego para arrastrar a los jugadores.':'Los jugadores permanecen en las posiciones que tú has decidido.';
+ const game=gameScores();
+ $('homeGameScore').textContent=game.home;
+ $('awayGameScore').textContent=game.away;
+ $('scoreDetail').textContent=game.detail;
+ $('myRole').textContent=state.serveTeam==='home'?'Saca':'Resta';
+ $('rivalRole').textContent=state.serveTeam==='away'?'Saca':'Resta';
+ $('serverDetail').textContent='Saca '+(state.serveTeam==='home'?'J1':'R1')+' · '+(state.serveSide==='right'?'Lado derecho':'Lado izquierdo');
+ $('counter').textContent=state.count;
+ $('percent').textContent=(state.won+state.lost)+' '+(state.won+state.lost===1?'punto':'puntos');
+ $('wonCount').textContent=state.won;$('lostCount').textContent=state.lost;$('goodCount').textContent=state.good;
+ $('startBtn').textContent=['idle','finished'].includes(state.phase)?'▶ Comenzar juego':'↻ Nueva sesión';
+ $('appRoot').classList.toggle('playing',!['idle','finished'].includes(state.phase));
+ $('phaseLabel').textContent=({idle:'LISTO PARA JUGAR',serve:'SERVICIO',incoming:'BOLA RIVAL',choose:'TU MOVIMIENTO',approach:'DESPLAZAMIENTO',outgoing:'TU DEVOLUCIÓN',result:'RESULTADO',finished:'JUEGO TERMINADO'})[state.phase]||'';
+ $('canvasNote').textContent=state.pause?'⏸ Simulación pausada':({idle:'Pulsa «Comenzar juego»',serve:'🎾 Saca tu pareja · el rival prepara la devolución',incoming:state.scenario&&state.scenario.kind==='serve'?'🎾 Saque rival: '+(state.servePlan?.style==='glass'?'cristal lateral':'T'):'Observa el tipo de pelota y su destino',choose:'Arrastra J1 o J2 directamente sobre la pista',approach:'Se ejecutan tus desplazamientos',outgoing:'Tu pelota viaja hacia el rival',result:state.lastResult==='won'?'✓ ¡Punto para tu pareja!':state.lastResult==='lost'?'✕ Punto para los rivales':'↔ El punto continúa',finished:state.gameWinner==='home'?'🏆 JUEGO GANADO':'🏁 JUEGO PERDIDO'})[state.phase]||'';
+ $('pauseBtn').disabled=!['serve','incoming','approach','outgoing','result'].includes(state.phase);$('pauseBtn').textContent=state.pause?'▶ Reanudar':'⏸ Pausa';
+ const hitting=state.player===null?null:destinationFor(state.player);
+ $('flatHint').textContent=hitting&&netHome(hitting)&&state.scenario&&state.scenario.kind==='flat'?'Se intentará como volea':'Golpe directo y rápido';
+ const rivalNet=state.away.filter(netAway).length;
+ const tacticWarning=state.shot==='lob'&&rivalNet===0?'⚠ Los dos rivales están atrás: el globo no gana profundidad.':
+  state.shot==='chiquita'&&rivalNet===0?'⚠ No hay rivales en red cuyos pies puedas atacar.':
+  state.shot==='drop'&&hitting&&!netHome(hitting)?'⚠ La dejada desde el fondo suele quedar corta.':
+  state.shot==='drop'&&rivalNet===2?'⚠ Los dos rivales están en la red: interceptarán la dejada.':'';
+ const tacticalTip=$('tacticTip');if(tacticalTip){tacticalTip.textContent=tacticWarning||'Elige el golpe que aproveche la posición de los rivales.';tacticalTip.classList.toggle('warning',!!tacticWarning);}
+ $('courtSubtitle').textContent='JUEGO ÚNICO · Punto '+Math.max(1,state.point)+' · Saca '+(state.serveTeam==='home'?'TU PAREJA':'RIVALES')+' · Lado '+state.serveSide+' · Saque '+(state.servePlan?.style==='glass'?'CRISTAL':'T')+' · R1 '+(settings.driveHand==='left'?'zurdo':'diestro');
+ $('statusLine').textContent='Marcador '+game.home+' – '+game.away+' · '+(state.rally?'Intercambio de '+state.rally+' devoluciones':'Preparando intercambio');
+}
+function begin(){
+ settings.style=$('rivalStyle').value;settings.guided=$('guided').checked;settings.firstServe=$('firstServe').value;settings.driveHand=$('driveHand').value;
+ hidePointOverlay();
+ Object.assign(state,{count:0,won:0,lost:0,good:0,point:0,rally:0,gameWinner:null,serveSide:'right',serveTeam:settings.firstServe,servePlayer:0,player:null,mover:null,planned:[null,null],zone:null,shot:null,
+ scenario:null,pending:null,previous:null,history:[],lastResult:null,animation:null,motion:null,wall:'none',servePlan:null,serveBag:[],serveHistory:[],waitingForNext:false});
+ $('history').innerHTML='<span class="note">En espera del primer punto.</span>';
+ feedback('¡A jugar!','Lee la ocupación de pista del rival y arrastra a J1 y J2. Después elige dirección y golpe: plano, globo, chiquita o dejada.');
+ startPoint();
+}
+function startPoint(){
+ if(state.gameWinner)return;
+ state.point++;state.rally=0;state.previous=null;state.serviceRun=null;state.servePlan=null;resetPositions();state.ball.visible=false;
+ // La misma pareja y el mismo sacador durante TODO el juego.
+ state.serveTeam=settings.firstServe;
+ state.servePlayer=0;
+ state.serveSide=(state.point%2===1)?'right':'left';
+ startService();
+}
+// Mezcla aleatoria equilibrada: en cada pareja de saques aparece un abierto al
+// cristal lateral y uno al centro (T), en un orden aleatorio distinto.
+function nextServeStyle(){
+ if(!state.serveBag.length){
+   state.serveBag=Math.random()<.5?['glass','t']:['t','glass'];
+ }
+ return state.serveBag.shift();
+}
+function makeServePlan(team,player,from){
+ const servingHome=team==='home',style=nextServeStyle(),rightSide=from.x<.5;
+ // La línea del cuadro de servicio está en y=.1525 (arriba) / .8475 (abajo).
+ // Saque profundo válido: bote 35–65 cm hacia la red desde esa línea, NO junto al cristal de fondo.
+ const line=servingHome?.1525:.8475;
+ const depth=.0175+Math.random()*.014;
+ const bounceY=servingHome?line+depth:line-depth;
+ const bounceX=style==='glass'?(rightSide?.89:.11)+(Math.random()-.5)*.038
+                              :(rightSide?.55:.45)+(Math.random()-.5)*.027;
+ const bounce={x:clamp(bounceX,rightSide?.52:.075,rightSide?.925:.48),y:bounceY};
+ const receiver={x:style==='glass'?(rightSide?.81:.19):(rightSide?.55:.45),y:servingHome?.115:.885};
+ // Solo en el saque abierto: tras botar en el cuadro reglamentario toca
+ // el CRISTAL de ese lado y regresa hacia el jugador que resta.
+ const glassPoint=style==='glass'?{x:rightSide?.996:.004,y:servingHome?.13:.87}:null;
+ const path=glassPoint?[clone(from),clone(bounce),clone(glassPoint),clone(receiver)]:[clone(from),clone(bounce),clone(receiver)];
+ return {team,player,side:state.serveSide,style,label:style==='glass'?'CRISTAL LATERAL':'LA T',bounce,glassPoint,to:receiver,path};
+}
+function startService(){
+ const servingHome=state.serveTeam==='home',i=state.servePlayer;
+ const serviceX=servingHome?(state.serveSide==='right'?.73:.27):(state.serveSide==='right'?.27:.73);
+ const from={x:serviceX,y:servingHome?.91:.09};
+ const plan=makeServePlan(state.serveTeam,i,from),to=plan.to;
+ state.servePlan=plan;
+ state.serveHistory.push({team:state.serveTeam,player:i,side:state.serveSide,style:plan.style,bounce:clone(plan.bounce)});
+ const receiver=to.x>.5?1:0;
+ const serveInfo='Saque desde el lado '+(state.serveSide==='right'?'derecho':'izquierdo')+', profundo hacia '+(plan.style==='glass'?'el cristal lateral':'la T')+
+   ': primer bote dentro del cuadro diagonal, muy cerca de la línea de saque.'+
+   (plan.style==='glass'?' Después del bote toca el cristal lateral.':' La pelota se mantiene cerca de la línea central.');
+ const pills=[{text:'SAQUE '+plan.label,css:'flat'},
+              {text:'BOTE LARGO DENTRO DEL CUADRO',css:'flat'},
+              {text:'R1 drive '+(settings.driveHand==='left'?'zurdo':'diestro')}];
+ if(servingHome){
+  state.home[i]={...from};state.home[1-i]={x:serviceX<.5?.73:.27,y:.64};
+  state.away[receiver]={x:to.x,y:.13};state.away[1-receiver]={x:to.x>.5?.27:.73,y:.13};
+  state.serviceRun={team:'home',index:i,from:clone(from),to:{x:from.x,y:.63}};
+  state.previous={receiver,shot:'flat',target:to};
+  state.animation={from,to,kind:'serve',path:plan.path,bounce:plan.bounce,serveStyle:plan.style,glassPoint:plan.glassPoint};
+  state.ball={...from,h:0,visible:true};
+  updateScenario('🎾 SACA TU PAREJA · '+plan.label,'J'+(i+1)+' sirve cruzado y sube inmediatamente a la red. '+serveInfo,pills);
+  feedback('Saque a '+plan.label,'J'+(i+1)+' avanza a la red mientras el saque '+(plan.style==='glass'?'bota y alcanza el cristal':'bota cerca de la T')+'. Los dos rivales empiezan al fondo.');
+  changePhase('serve',1400*speedFactor[settings.speed]);
+ }else{
+  state.away[i]={...from};state.away[1-i]={x:serviceX<.5?.73:.27,y:.36};
+  state.home[receiver]={x:to.x,y:.88};state.home[1-receiver]={x:to.x>.5?.27:.73,y:.88};
+  state.serviceRun={team:'away',index:i,from:clone(from),to:{x:from.x,y:.37}};
+  const ds=state.home.map(p=>distance(p,to)),ideal=ds[0]<ds[1]?0:1;
+  state.scenario={kind:'serve',from,to:clone(to),ds,ideal,wasNet:state.home.map(netHome),hitter:i,lane:to.x<.5?0:2,serveStyle:plan.style,bounce:clone(plan.bounce)};
+  state.player=null;state.mover=null;state.planned=[null,null];state.zone=null;state.shot=null;state.wall='none';state.lastResult=null;
+  state.animation={from,to,kind:'serve',path:plan.path,bounce:plan.bounce,serveStyle:plan.style,glassPoint:plan.glassPoint};
+  state.ball={...from,h:0,visible:true};
+  updateScenario('🎾 SAQUE RIVAL · '+plan.label,'R'+(i+1)+' sirve cruzado y sube a la red. '+serveInfo+' Arrastra al restador para devolver después del bote; no se puede volear el servicio.',pills);
+  changePhase('incoming',1470*speedFactor[settings.speed]);
+ }
+}
+function serveDone(){
+ if(state.serviceRun&&state.serviceRun.team==='home')state.home[state.serviceRun.index]=clone(state.serviceRun.to);
+ const receiver=state.previous.receiver;
+ state.away[receiver]={x:state.animation.to.x,y:state.animation.to.y};
+ startIncoming();
+}
+// En pádel la elección del golpe depende primero de la relación red-fondo.
+// Las preferencias configuradas solo modifican probabilidades de golpes TÁCTICAMENTE válidos.
+function weightedChoice(options,seed){
+ const total=options.reduce((a,o)=>a+Math.max(0,o.weight),0),r=deterministic(seed)*total;
+ let sum=0;
+ for(const option of options){sum+=Math.max(0,option.weight);if(r<sum)return option.kind;}
+ return options[options.length-1].kind;
+}
+function selectRivalTactic(home,away,hitter,seed,style=settings.style){
+ const homeNet=home.filter(netHome).length,homeDeep=home.filter(p=>p.y>=.79).length;
+ const rivalAtNet=away.filter(netAway).length,atNet=netAway(away[hitter]);
+ const previous=state.previous?.shot||'serve';
+ let weights={flat:3,lob:0,chiquita:0,drop:0};
+ let situation='';
+ if(homeNet===2){
+   if(atNet){weights={flat:6.5,lob:.15,chiquita:0,drop:0};situation='Los dos receptores dominan la red; el rival adelantado mantiene presión con un golpe rápido.';}
+   else{weights={flat:1.8,lob:5.7,chiquita:2.6,drop:0};situation='Los dos receptores dominan la red; el globo busca superarlos y la chiquita les busca los pies.';}
+ }else if(homeNet===1){
+   if(atNet){weights={flat:6,lob:.10,chiquita:0,drop:.15};situation='Solo hay un receptor en la red; el rival busca el espacio que deja la transición.';}
+   else{weights={flat:4.5,lob:1.8,chiquita:3.1,drop:0};situation='Un receptor está adelantado y el otro atrás; se ataca el hueco o los pies del adelantado.';}
+ }else{ // Ambos detrás de la zona de volea. Jamás regalar un globo.
+   if(atNet){
+     weights={flat:5.7,lob:0,chiquita:0,drop:homeDeep===2?3.9:2.3};
+     situation='Ambos receptores están atrás: el rival de red evita el globo y alterna presión profunda con dejada.';
+   }else{
+     weights={flat:9.5,lob:0,chiquita:0,drop:0};
+     situation='Los dos receptores están atrás y el golpeador también: plano profundo para ganar pista, nunca globo ni dejada forzada.';
+   }
+ }
+ if(style==='lobs'&&weights.lob>0)weights.lob*=1.8;
+ if(style==='flat'){weights.flat*=1.6;if(weights.chiquita>0)weights.chiquita*=1.5;}
+ // Si el rival acaba de retroceder para recuperar un globo, prefiere reiniciar el punto.
+ if(previous==='lob'&&!atNet){weights.flat*=1.2;weights.lob*=.65;}
+ if(previous==='chiquita'&&atNet){weights.flat*=1.4;weights.drop*=.65;}
+ const kind=weightedChoice(Object.entries(weights).map(([k,weight])=>({kind:k,weight})),seed+5);
+ // Objetivos concretos: pelota a los pies, al fondo o en el espacio delante de los defensores.
+ const targetY=kind==='lob'?.929+deterministic(seed+1)*.025:
+    kind==='drop'?.558+deterministic(seed+2)*.052:
+    kind==='chiquita'?.678+deterministic(seed+3)*.035:
+    homeNet>=1?.691+deterministic(seed+4)*.078:.815+deterministic(seed+4)*.095;
+ const candidates=[.15,.5,.85].map((x,i)=>{
+  const pt={x,y:targetY},nearest=Math.min(...home.map(p=>distance(p,pt)));
+  let score=nearest*.75;
+  if(kind==='chiquita'){
+   const nearNet=home.filter(netHome);
+   score=nearNet.length?4.6-Math.min(...nearNet.map(p=>Math.abs((p.x-x)*10)))*.75:-10;
+   score+=i===1&&nearNet.length===2?.30:0;
+  }
+  if(kind==='lob'){
+   const netPlayers=home.filter(netHome);
+   score=netPlayers.length?4.5-Math.min(...netPlayers.map(p=>Math.abs((p.x-x)*10)))*.65:0;
+  }
+  if(kind==='drop')score=nearest*1.35; // deja la pelota en el sector más alejado de los dos
+  if(kind==='flat'&&homeNet===0)score=nearest*.9+(i!==1?.5:0);
+  score+=(deterministic(seed+31+i)-.5)*1.35;
+  return {lane:i,score};
+ });
+ candidates.sort((a,b)=>b.score-a.score);
+ const lane=candidates[0].lane;
+ const x=clamp([.16,.5,.84][lane]+(deterministic(seed+9)-.5)*.055,.09,.91);
+ let rationale=kind==='lob'?'Globo profundo para sacar de la red al receptor y ganar tiempo.':
+  kind==='chiquita'?'Chiquita baja: obliga al jugador adelantado a volear desde debajo de la red.':
+  kind==='drop'?'Dejada corta: obliga a correr hacia delante a una pareja situada en el fondo.':
+  homeNet===0?'Plano profundo y colocado para mantener la presión sin regalar una bola alta.':
+  'Plano rápido hacia el hueco libre; busca forzar una volea incómoda.';
+ if(kind==='lob'&&homeNet===1)rationale='Globo sobre el único jugador adelantado; su compañero está al fondo.';
+ return {kind,lane,to:{x,y:targetY},reason:rationale,reading:situation,homeNet,homeDeep,rivalAtNet,hitterAtNet:atNet,weights};
+}
+function startIncoming(){
+ const seed=state.point*11+state.count*7+state.rally*19;
+ const hitter=state.previous?state.previous.receiver:Math.floor(deterministic(seed+21)*2);
+ const opp=state.away[hitter];
+ const from={x:opp.x,y:Math.min(.44,opp.y+.01)};
+ const tactical=selectRivalTactic(state.home,state.away,hitter,seed);
+ const {kind,lane,to}=tactical;
+ const ds=state.home.map(p=>distance(p,to));
+ const ideal=ds[0]===ds[1]?(to.x<.5?0:1):(ds[0]<ds[1]?0:1);
+ const wasNet=state.home.map(netHome);
+ state.scenario={kind,from,to,ds,ideal,wasNet,hitter,lane,tactical};
+ state.player=null;state.mover=null;state.planned=[null,null];state.zone=null;state.shot=null;state.wall='none';state.lastResult=null;
+ state.animation={from,to,kind};state.ball={...from,h:0,visible:true};
+ const headline={flat:'➜ PLANO',lob:'⤴ GLOBO',chiquita:'⇣ CHIQUITA',drop:'⌁ DEJADA'}[kind];
+ updateScenario('👀 R'+(hitter+1)+' prepara '+shotName(kind),tactical.reading+' '+tactical.reason,[
+ {text:headline,css:kind},{text:'Rival R'+(hitter+1)},{text:state.home.filter(netHome).length+' EN RED · TU PAREJA'}]);
+ changePhase('incoming',(kind==='lob'?1830:kind==='drop'?1450:kind==='chiquita'?1330:1220)*speedFactor[settings.speed]);
+}
+function incomingDone(){
+ const s=state.scenario;state.ball={...s.to,h:0,visible:true};changePhase('choose');
+ const kind=s.kind,serve=kind==='serve';
+ const details={
+  lob:'Globo profundo: si estabas en la red debes retroceder. Un globo corto puede ser rematado.',
+  flat:'Plano rápido: si estás en la red puedes interceptar de volea; si estás al fondo defiende en pareja.',
+  chiquita:'Chiquita lenta y muy baja a los pies: exige agacharse, bloquear/controlar y evitar levantar una bola fácil.',
+  drop:'Dejada cerca de la red: si tu pareja estaba atrás, adelántate para llegar. Es una carrera contrarreloj.'
+ };
+ const detail=serve?'Resto de saque '+(s.serveStyle==='glass'?'abierto al cristal lateral':'al centro (T)')+': bote legal cerca de la línea de saque; no se puede volear el servicio.':details[kind]+' '+(s.tactical?.reason||'');
+ updateScenario(serve?'🎾 RESTA EL SAQUE · '+(s.serveStyle==='glass'?'CRISTAL':'T'):
+  ({flat:'➜ ¡PLANO RIVAL!',lob:'⤴ ¡GLOBO RIVAL!',chiquita:'⇣ ¡CHIQUITA RIVAL!',drop:'⌁ ¡DEJADA RIVAL!'})[kind],detail,[
+ {text:serve?'SERVICIO':shotName(kind).toUpperCase(),css:kind},
+ {text:'R1 '+enemyPosName(state.away[0])},
+ {text:'R2 '+enemyPosName(state.away[1])}]);
+ if(settings.guided){
+  const oppNet=state.away.filter(netAway).length;
+  const suggestion=oppNet===2?'Un globo si puedes ejecutarlo con control, o una chiquita a los pies desde el fondo.':oppNet===1?'Busca los pies del jugador adelantado o el espacio abierto con un plano.':'Los rivales están al fondo: NO juegues un globo. Busca un plano profundo; si estás en red, valora una dejada.';
+  const info='J'+(s.ideal+1)+' parte mejor situado ('+s.ds[s.ideal].toFixed(1)+' m). Arrástralo hacia la pelota y coordina la cobertura con su compañero. '+suggestion;
+  feedback('💡 Lectura táctica',info,'good');
+ }else feedback('Tú decides','El rival ha elegido '+shotName(kind)+' por la posición de los cuatro jugadores. Arrastra a tus jugadores, selecciona receptor, dirección y golpe.');
+}
+function choosePlayer(i){if(state.phase!=='choose')return;state.player=i;syncUI();}
+function chooseZone(i){if(state.phase!=='choose')return;state.zone=i;if(i===1)state.wall='none';syncUI();}
+function chooseShot(v){if(state.phase!=='choose')return;state.shot=v;if(v!=='flat')state.wall='none';syncUI();}
+function chooseWall(v){if(state.phase!=='choose')return;state.wall=v;if(v!=='none'){state.shot='flat';if(state.zone===1)state.zone=null;}syncUI();}
+function planMove(i,position){
+ if(state.phase!=='choose'||i===null)return;
+ state.mover=i;
+ state.planned[i]={x:clamp(position.x,.065,.935),y:clamp(position.y,.535,.963)};
+ syncUI();
+}
+function clearMoves(){if(state.phase!=='choose')return;state.planned=[null,null];syncUI();}
+function calculateReturn(s,player,zone,shot,aim,wall='none'){
+ const origin=state.home[player],contact=destinationFor(player),mate=destinationFor(1-player);
+ const travel=travelDist(player),mateTravel=travelDist(1-player),ballDist=distance(contact,s.to);
+ const arrivingFromNet=s.wasNet[player]&&s.kind==='lob';
+ const receiverNet=netHome(contact);
+ const volley=s.kind==='flat'&&shot==='flat'&&receiverNet&&s.to.y<.77&&ballDist<=1.55;
+ const reachLimit=travelLimit(player),mateLimit=travelLimit(1-player);
+ const rivalDistances=state.away.map(e=>distance(e,aim));
+ const closeRival=Math.min(...rivalDistances),receiver=rivalDistances[0]<=rivalDistances[1]?0:1;
+ const rivalAtNet=state.away.filter(netAway).length,rivalDeep=state.away.filter(e=>e.y<=.23).length;
+ const freeSpace=closeRival>(shot==='lob'?4.15:shot==='drop'?3.6:3.3);
+ const bestWrong=player!==s.ideal&&s.ds[player]-s.ds[s.ideal]>2.0;
+ const gap=Math.abs(contact.x-mate.x)*10,overlap=distance(contact,mate),alignedDepth=Math.abs(contact.y-mate.y)*20;
+ const deepRecovery=s.kind==='lob'&&s.to.y>.91;
+ const reasons=[];let quality=83-Math.max(0,travel-1.8)*4.5-ballDist*9;
+ const result=(what,title,body,extra={})=>({result:what,quality:Math.max(0,Math.min(100,quality)),good:what!=='lost'&&quality>=68,receiver,volley,arrivingFromNet,travel,ballDist,...extra,title,body});
+ if(travel>reachLimit+.01){quality=0;return result('lost','✕ No llegas a tiempo','J'+(player+1)+' necesita recorrer '+travel.toFixed(1)+' m pero, ante '+shotName(s.kind)+', puede cubrir alrededor de '+reachLimit.toFixed(1)+' m.',{noContact:true});}
+ if(ballDist>1.70){quality=0;return result('lost','✕ Lejos de la pelota','Has situado a J'+(player+1)+' a '+ballDist.toFixed(1)+' m de la llegada. Acércalo al punto de contacto.',{noContact:true});}
+ if(travel>reachLimit-.9){quality-=20;reasons.push('Llegas muy forzado.');}
+ if(ballDist>1.15){quality-=12;reasons.push('Golpeas estirado.');}
+ if(bestWrong){quality-=15;reasons.push('Tu compañero partía mejor colocado.');}
+ if(arrivingFromNet){quality-=deepRecovery?11:6;reasons.push('Has debido retroceder desde la red para recuperar el globo.');}
+ if(volley){quality+=15;reasons.push('Voleas desde una zona ofensiva.');}
+ if(s.kind==='chiquita'&&receiverNet){quality-=11;reasons.push('La chiquita te obliga a volear baja, por debajo de la cinta.');}
+ if(s.kind==='drop'&&travel>4.7){quality-=9;reasons.push('Llegas corriendo hacia delante para rescatar la dejada.');}
+ if(mateTravel>mateLimit){quality-=16;reasons.push('Tu compañero deja un espacio al intentar desplazarse demasiado.');}
+ else if(state.planned[1-player]!==null&&gap>=2.6&&alignedDepth<=4.3){quality+=7;reasons.push('La pareja cubre bien la pista.');}
+ if(overlap<1.8){quality-=27;reasons.push('Los dos quedáis amontonados.');}
+ else if(gap<1.8){quality-=13;reasons.push('Los dos cubrís prácticamente el mismo carril.');}
+ if(alignedDepth>6){quality-=9;reasons.push('La pareja está muy separada en profundidad.');}
+ if(wall!=='none'){
+  const receiverAtNet=netAway(state.away[receiver]);
+  if(wall==='glass'){
+    quality+=rivalAtNet*8;
+    reasons.push('El cristal lateral exige retroceder después del bote.');
+    if(rivalAtNet===0){quality-=6;reasons.push('El receptor ya estaba preparado atrás.');}
+  }else{
+    quality+=10;reasons.push('Buscas la reja lateral de bote irregular.');
+    if(receiverAtNet&&closeRival<3.3){quality-=14;reasons.push('El rival adelantado puede interceptar antes de la reja.');}
+    if(quality<53){quality-=9;reasons.push('Una reja exige precisión.');}
+  }
+  if(zone===0&&receiver===0){
+   if(settings.driveHand==='left'){quality+=11;reasons.push('El drive zurdo tiene que responder de revés a la pared exterior.');}
+   else {quality-=5;reasons.push('El drive diestro cubre esa pared con su derecha.');}
+  }
+ }
+ if(shot==='lob'){
+  if(rivalAtNet===2){quality+=19;reasons.push('Globo bien elegido: los dos rivales ocupan la red.');}
+  else if(rivalAtNet===1){quality+=3;reasons.push('Busca superar al único rival adelantado; cuidado con el jugador del fondo.');}
+  else{quality-=43;reasons.push('Error táctico: ambos rivales están al fondo; el globo les da tiempo para organizar el ataque.');}
+  if(arrivingFromNet&&deepRecovery)quality+=5;
+ }else if(shot==='chiquita'){
+  if(wall!=='none'){quality=0;return result('lost','✕ Golpe incompatible','La chiquita no es un ataque a la pared lateral.');}
+  if(!receiverNet&&rivalAtNet>=1&&state.away.filter(netAway).some(p=>distance(p,aim)<2.95)){quality+=11+rivalAtNet*3;reasons.push('Chiquita baja a los pies del jugador de red: puedes recuperar la iniciativa.');}
+  else if(!receiverNet&&rivalAtNet>=1){quality-=16;reasons.push('Has jugado la chiquita lejos de los pies del rival adelantado: pierde su efecto táctico.');}
+  else if(!receiverNet&&rivalAtNet===0){quality-=29;reasons.push('Sin rivales adelantados, la chiquita da una pelota cómoda y no permite tomar la red.');}
+  else{quality-=18;reasons.push('Desde tan cerca de la red es preferible volear profundo o sorprender con dejada.');}
+  if(s.kind==='lob'&&arrivingFromNet)quality-=12;
+  if(closeRival>4.5&&rivalAtNet>0)quality+=4;
+ }else if(shot==='drop'){
+  if(!receiverNet){quality-=40;reasons.push('Desde el fondo, una dejada tiene mucho recorrido y se queda expuesta.');}
+  else if(rivalDeep===2){quality+=29;reasons.push('La pareja contraria está al fondo: la dejada cae lejos de ambos.');}
+  else if(rivalAtNet===2){quality-=42;reasons.push('Con los dos rivales en la red, la dejada les entrega una volea fácil.');}
+  else if(rivalAtNet===1){quality-=19;reasons.push('Hay un rival adelantado que puede interceptar la dejada.');}
+  else{quality+=11;reasons.push('Buscas el espacio que los rivales han dejado junto a la red.');}
+  if(s.kind==='lob'&&arrivingFromNet)quality-=23;
+ }else{
+  if(arrivingFromNet){quality-=19;reasons.push('Desde una recuperación profunda, el plano es más difícil de controlar.');}
+  if(rivalAtNet===2&&!volley){quality-=9;reasons.push('Los dos rivales en red pueden interceptar el plano.');}
+  if(zone===1&&rivalAtNet>=1){quality-=13;reasons.push('El centro está protegido por los rivales adelantados.');}
+  if(freeSpace){quality+=10;reasons.push('Atacas una zona libre.');}
+  if(rivalDeep===2&&aim.y<.3){quality+=4;reasons.push('Plano profundo para mantener al rival atrás.');}
+ }
+ if(quality<29){return result('lost','✕ Punto perdido: elección inadecuada',reasons.join(' ')+' El rival aprovecha una pelota fácil o demasiado forzada.');}
+ // Una chiquita es un GOLPE DE CONSTRUCCIÓN, no un ganador automático.
+ // Una dejada solo es ganadora cuando los rivales no pueden llegar desde el fondo.
+ const rivalReach=shot==='lob'?(netAway(state.away[receiver])?7.0:6.5):
+  shot==='chiquita'?1.9:shot==='drop'?3.7:wall==='fence'?3.2:wall==='glass'?3.7:(volley?2.95:4.45);
+ const exposed=closeRival>rivalReach;
+ const dominantVolley=shot==='flat'&&volley&&zone!==1&&closeRival>3.05&&quality>=79;
+ const wallWinner=wall!=='none'&&closeRival>(wall==='fence'?2.55:3.1)&&quality>=(wall==='fence'?79:88);
+ const dropWinner=shot==='drop'&&receiverNet&&rivalDeep===2&&closeRival>3.75&&quality>=69;
+ const badCoverage=gap<2.4&&mateTravel>1;
+ const badCounter=(quality<46&&rivalAtNet>=1&&shot==='flat') ||
+  (state.rally>=4&&shot==='lob'&&rivalAtNet===0&&quality<67) ||
+  (badCoverage&&quality<59&&rivalAtNet>=1) ||
+  (shot==='drop'&&rivalAtNet===2&&quality<55) ||
+  (shot==='chiquita'&&rivalAtNet===0&&quality<58);
+ const rallyWinner=state.rally>=3&&shot==='flat'&&zone!==1&&quality>=76&&closeRival>2.35;
+ if(shot==='drop'&&dropWinner || shot==='flat'&&((exposed&&quality>=62)||dominantVolley||rallyWinner||wallWinner) || shot==='lob'&&exposed&&rivalAtNet>0&&quality>=80){
+  return result('won','✓ ¡Punto ganado!',(shot==='drop'?'Dejada ganadora: ninguno de los dos rivales llega a tiempo. ':
+    wall==='fence'?'Golpe ganador a la reja. ':wall==='glass'?'Golpe ganador al cristal. ':
+    volley?'Volea ganadora. ':shot==='lob'?'Globo que supera a los rivales adelantados. ':'Plano bien dirigido. ')+reasons.join(' '));
+ }
+ if(badCounter)return result('lost','✕ Contraataque rival',reasons.join(' ')+' El rival cierra el punto.');
+ return result('continue',quality>=68?'↔ Decisión táctica correcta':'↔ El rival consigue devolverla',
+  (shot==='chiquita'?'La chiquita obliga a jugar desde abajo y permite construir el punto. ':
+    shot==='drop'?'La dejada obliga al rival a acercarse a la red. ':
+    shot==='lob'?'El globo cambia la profundidad del intercambio. ':
+    wall==='fence'?'La pelota toca la reja después del bote. ':
+    wall==='glass'?'La pelota alcanza el cristal lateral. ':volley?'Tu volea presiona al rival. ':'Tu plano cruza la red. ')+reasons.join(' '));
+}
+function hit(){
+ if(state.phase!=='choose'||state.player===null||state.planned[state.player]===null||state.zone===null||state.shot===null)return;
+ const s=state.scenario,p=state.player,z=state.zone,shot=state.shot,wall=state.wall;
+ const targetX=wall!=='none'?(z===0?.025:.975):[.16,.5,.84][z];
+ const targetY=wall==='fence'?.39:wall==='glass'?.19:shot==='lob'?.15:shot==='chiquita'?.345:shot==='drop'?.454:(z===1?.27:.20);
+ const aim={x:targetX,y:targetY};
+ let outcome=calculateReturn(s,p,z,shot,aim,wall);
+ // Evita que un intercambio se prolongue indefinidamente sin cerrar el juego.
+ if(outcome.result==='continue'&&state.rally>=15){
+  const won=outcome.quality>=69&&outcome.ballDist<=1.1;
+  outcome={...outcome,result:won?'won':'lost',title:won?'✓ Punto construido con paciencia':'✕ El rival aprovecha el intercambio largo',body:won?'Después de un intercambio largo, la colocación y la precisión obligan al rival a fallar.':'El intercambio prolongado acaba con un error o una recuperación rival mejor colocada.'};
+ }
+ const side=z===0?0:1;
+ const path=wall==='none'?null:[clone(s.to),{x:side===0?.12:.88,y:wall==='glass'?.21:.37},clone(aim),{x:side===0?.18:.82,y:wall==='glass'?.25:.32}];
+ state.pending={...outcome,shot,zone:z,player:p,wall,aim,from:clone(s.to),path};
+ state.count++;state.rally++;
+ if(outcome.good)state.good++;
+ const previousHome=state.home.map(clone);
+ // ÚNICAMENTE aplicamos las posiciones indicadas por la persona usuaria.
+ state.home=state.home.map((old,i)=>{
+  const wanted=state.planned[i];if(!wanted)return clone(old);
+  const meters=distance(old,wanted),limit=travelLimit(i);
+  // Si el usuario pide un recorrido imposible, el jugador avanza solamente hasta donde le da tiempo.
+  return meters>limit?{x:lerp(old.x,wanted.x,limit/meters),y:lerp(old.y,wanted.y,limit/meters)}:clone(wanted);
+ });
+ state.ball={...s.to,h:0,visible:true};
+ state.motion={from:previousHome,to:state.home.map(clone)};
+ state.animation={from:clone(s.to),to:aim,kind:shot,path:state.pending.path,wall};
+ updateScenario(outcome.noContact?'⚠ No alcanzas la pelota':'🎾 Tu devolución: '+(wall==='fence'?'REJA LATERAL':wall==='glass'?'CRISTAL LATERAL':outcome.volley?'VOLEA':shotName(shot).toUpperCase()),
+ 'J'+(p+1)+' ha recorrido '+outcome.travel.toFixed(1)+' m. '+(outcome.noContact?'No conseguirá contactar con la pelota.':
+ 'Golpea hacia '+labelsZone[z]+(wall==='none'?'. ':', buscando '+(wall==='fence'?'la reja':'el cristal')+' después del bote. ')+(outcome.arrivingFromNet?'Recupera desde la red.':'Tu compañero se queda en la posición que elegiste.')),[
+ {text:'CALIDAD '+Math.round(outcome.quality)+'/100'},
+ {text:wall==='fence'?'▤ REJA':wall==='glass'?'▧ CRISTAL':shot==='lob'?'⤴ GLOBO':shot==='chiquita'?'⇣ CHIQUITA':shot==='drop'?'⌁ DEJADA':outcome.volley?'➜ VOLEA':'➜ PLANO',css:shot}]);
+ feedback('Desplazamiento en ejecución','Se reproducen los recorridos que has trazado arrastrando los jugadores. Se valora la llegada a la pelota y la cobertura del compañero.');
+ changePhase('approach',Math.max(460,outcome.travel*170)*(speedFactor[settings.speed]));
+}
+function outgoingDone(){
+ const o=state.pending;
+ state.ball={...(o.noContact?o.from:o.aim),h:0,visible:true};
+ // El rival que devuelve ocupa la zona alcanzada; su pareja cubre el otro espacio.
+ if(o.result==='continue'){
+  state.away[o.receiver].x=lerp(state.away[o.receiver].x,o.aim.x,.86);
+  state.away[o.receiver].y=lerp(state.away[o.receiver].y,o.aim.y,.85);
+  const other=state.away[1-o.receiver];
+  other.x=lerp(other.x,o.receiver===0?.74:.26,.22);
+  other.y=lerp(other.y,o.shot==='lob'?.25:o.shot==='drop'?.43:.35,.22);
+  // La colocación del equipo propio NO cambia automáticamente entre golpes.
+  // El siguiente ataque rival se calcula a partir de las posiciones elegidas.
+  state.previous={receiver:o.receiver,shot:o.shot,target:clone(o.aim)};
+ }else{
+   if(o.result==='won')state.won++;else state.lost++;
+   state.gameWinner=gameWinner();
+   state.history.push({won:o.result==='won',label:'P'+state.point+' · '+state.rally+' golpes'});
+   renderHistory();
+ }
+ state.lastResult=o.result;
+ if(o.result!=='continue')showPointOverlay(o);
+ feedback(o.title,o.body,o.result==='won'?'good':o.result==='lost'?'bad':o.good?'good':'neutral');
+ updateScenario(o.result==='won'?'🏆 ¡Punto para tu pareja!':o.result==='lost'?'✕ Punto para los rivales':'↔ Los rivales devuelven',
+  o.result==='continue'?'El intercambio sigue. Los rivales se reposicionan; tu pareja conserva la colocación que elegiste.':
+  'El punto termina aquí. '+(state.gameWinner?'¡Juego completo! La pareja ganadora se decide con ventaja de dos puntos.':'Pulsa «Siguiente punto» para continuar.'),[
+  {text: 'CALIDAD '+Math.round(o.quality)+'/100'},
+  {text:o.result==='won'?'PUNTO GANADO':o.result==='lost'?'PUNTO PERDIDO':'CONTINÚA'}]);
+ state.waitingForNext=o.result!=='continue';
+ if(state.gameWinner)finish(true);
+ else changePhase('result',(o.result==='continue'?1100:0)*speedFactor[settings.speed]);
+}
+function nextAfterResult(){
+ if(state.gameWinner)return;
+ if(state.pending.result==='continue')startIncoming();else startPoint();
+}
+function showPointOverlay(o){
+ $('pointDialog').className='point-dialog '+o.result;
+ $('pointEmoji').textContent=state.gameWinner?(state.gameWinner==='home'?'🏆':'🏁'):(o.result==='won'?'🏆':'✕');
+ $('pointTitle').textContent=state.gameWinner?(state.gameWinner==='home'?'¡HAS GANADO EL JUEGO!':'¡JUEGO PARA LOS RIVALES!'):(o.result==='won'?'¡Punto para tu pareja!':'Punto para los rivales');
+ $('pointDetail').textContent=o.body+(state.gameWinner?' El juego termina aquí; no se disputan más juegos ni sets.':'');
+ const g=gameScores();
+ $('pointScore').textContent='MARCADOR · Tu pareja '+g.home+' — '+g.away+' rivales'+(state.gameWinner?' · Final '+state.won+'-'+state.lost+' puntos':'');
+ $('nextPointBtn').textContent=state.gameWinner?'↻ Jugar otro juego independiente':'▶ Siguiente punto';
+ $('pointOverlay').classList.add('show');$('pointOverlay').setAttribute('aria-hidden','false');
+ $('nextPointBtn').focus();
+}
+function hidePointOverlay(){$('pointOverlay').classList.remove('show');$('pointOverlay').setAttribute('aria-hidden','true');}
+function finish(keepOverlay=false){
+ if(!keepOverlay)hidePointOverlay();
+ state.ball.visible=false;state.animation=null;changePhase('finished');
+ const winner=state.gameWinner==='home'?'tu pareja':'los rivales';
+ updateScenario('🏁 Juego terminado · ganan '+winner, 'Juego único completo en '+state.point+' puntos ('+state.won+'-'+state.lost+'). Has entrenado '+state.count+' devoluciones y tomado '+state.good+' decisiones favorables. No se juega set ni partido.',[
+ {text:'TUS PUNTOS '+state.won},{text:'RIVALES '+state.lost},{text:'BUENAS '+state.good}]);
+ feedback('Resultado del juego','Puedes empezar otro juego independiente con «Reiniciar». El marcador siempre empieza de 0 a 0.',state.gameWinner==='home'?'good':'neutral');
+}
+function cancelToSettings(){
+ hidePointOverlay();state.ball.visible=false;state.animation=null;state.gameWinner=null;changePhase('idle');
+ updateScenario('🎾 Prepara un nuevo juego','Configura quién saca. Solo se disputará un juego, con 0, 15, 30, 40 y ventajas.');
+}
+function renderHistory(){
+ $('history').innerHTML=state.history.slice(-12).map(item=>'<span class="logitem '+(item.won?'won':'lost')+'">'+(item.won?'✓':'✕')+' '+esc(item.label)+'</span>').join('');
+}
+function update(now){
+ if(state.pause)return;
+ if(state.phase==='approach'){
+  if(now-state.phaseStart>=state.duration){
+    const o=state.pending;if(o.noContact){outgoingDone();}else{changePhase('outgoing',(o.shot==='lob'?1730:o.shot==='drop'?1350:o.shot==='chiquita'?1340:1120)*speedFactor[settings.speed]);playTap();}
+  }
+ }else if(state.phase==='serve'||state.phase==='incoming'||state.phase==='outgoing'){
+  const t=clamp((now-state.phaseStart)/state.duration,0,1),a=state.animation.from,b=state.animation.to;
+  if(a.path){
+   const seg=Math.min(a.path.length-2,Math.floor(t*(a.path.length-1))),frac=t*(a.path.length-1)-seg;
+   state.ball.x=lerp(a.path[seg].x,a.path[seg+1].x,frac);
+   state.ball.y=lerp(a.path[seg].y,a.path[seg+1].y,frac);
+  }else{state.ball.x=lerp(a.x,b.x,t);state.ball.y=lerp(a.y,b.y,t);}
+  // El sacador corre hacia la red al mismo tiempo que vuela el servicio.
+  if(state.serviceRun&&(state.phase==='serve'||(state.phase==='incoming'&&state.scenario&&state.scenario.kind==='serve'))){
+   const run=state.serviceRun,ease=1-Math.pow(1-t,1.7),team=run.team==='home'?state.home:state.away;
+   team[run.index]={x:lerp(run.from.x,run.to.x,ease),y:lerp(run.from.y,run.to.y,ease)};
+  }
+  const lob=state.animation.kind==='lob',soft=state.animation.kind==='chiquita',drop=state.animation.kind==='drop';
+  if(state.animation.kind==='serve'&&state.animation.path){
+    const bounceAt=1/(state.animation.path.length-1);
+    state.ball.h=t<=bounceAt?Math.sin(Math.PI*t/bounceAt)*.029:
+        Math.max(0,Math.sin(Math.PI*(t-bounceAt)/(1-bounceAt)))*.012;
+  }else state.ball.h=Math.sin(t*Math.PI)*(lob?.132:soft?.009:drop?.013:state.animation.wall?.017:.029);
+  if(t>=1){if(state.phase==='serve')serveDone();else if(state.phase==='incoming')incomingDone();else outgoingDone();}
+ }else if(state.phase==='result'&&!state.waitingForNext&&now-state.phaseStart>=state.duration){nextAfterResult();}
+}
+function roundRect(x,y,w,h,r,fill,stroke){ctx.beginPath();ctx.roundRect(x,y,w,h,r);if(fill){ctx.fillStyle=fill;ctx.fill();}if(stroke){ctx.strokeStyle=stroke;ctx.stroke();}}
+function courtBase(){
+ let grad=ctx.createLinearGradient(0,0,W,H);grad.addColorStop(0,'#0b2530');grad.addColorStop(1,'#09202b');ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);
+ roundRect(COURT.x-24,COURT.y-22,COURT.w+48,COURT.h+44,14,'#0a3038','#47777a');
+ grad=ctx.createLinearGradient(COURT.x,COURT.y,COURT.x+COURT.w,COURT.y+COURT.h);grad.addColorStop(0,'#157888');grad.addColorStop(.5,'#0c8b97');grad.addColorStop(1,'#147484');ctx.fillStyle=grad;ctx.fillRect(COURT.x,COURT.y,COURT.w,COURT.h);
+ ctx.fillStyle='#efffff06';ctx.fillRect(COURT.x,COURT.y,COURT.w,COURT.h/2);
+ // Cristales, línea central y líneas de saque a 6,95 m de la red.
+ ctx.lineWidth=8;ctx.strokeStyle='#b5d0c670';ctx.strokeRect(COURT.x,COURT.y,COURT.w,COURT.h);
+ ctx.lineWidth=2.5;ctx.strokeStyle='#d6eee9a3';ctx.strokeRect(COURT.x,COURT.y,COURT.w,COURT.h);
+ // Diferencia visualmente el cristal de fondo y la reja junto a la zona de red.
+ for(const xx of [COURT.x-15,COURT.x+COURT.w+15]){
+   ctx.lineWidth=7;ctx.strokeStyle='#a5ece7';
+   for(const [a,b] of [[0,.20],[.80,1]]){ctx.beginPath();ctx.moveTo(xx,Y(a));ctx.lineTo(xx,Y(b));ctx.stroke();}
+   ctx.lineWidth=7;ctx.strokeStyle='#d9b080';ctx.beginPath();ctx.moveTo(xx,Y(.20));ctx.lineTo(xx,Y(.80));ctx.stroke();
+   ctx.lineWidth=1.5;ctx.strokeStyle='#fff5d3a8';
+   for(let py=Y(.21);py<Y(.79);py+=16){ctx.beginPath();ctx.moveTo(xx-4,py);ctx.lineTo(xx+4,py+11);ctx.stroke();}
+ }
+ for(let i=1;i<=5;i++){const y=COURT.y+COURT.h*i/6;ctx.strokeStyle='#a1c8c4aa';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(COURT.x-22,y);ctx.lineTo(COURT.x,y);ctx.moveTo(COURT.x+COURT.w,y);ctx.lineTo(COURT.x+COURT.w+22,y);ctx.stroke();}
+ const net=Y(.5),yTop=Y((10-6.95)/20),yBottom=Y((10+6.95)/20);
+ ctx.beginPath();ctx.lineWidth=3.6;ctx.strokeStyle='#f1fff4dd';ctx.moveTo(COURT.x,yTop);ctx.lineTo(COURT.x+COURT.w,yTop);ctx.moveTo(COURT.x,yBottom);ctx.lineTo(COURT.x+COURT.w,yBottom);ctx.moveTo(X(.5),yTop);ctx.lineTo(X(.5),net);ctx.moveTo(X(.5),net);ctx.lineTo(X(.5),yBottom);ctx.stroke();
+ ctx.fillStyle='#05192099';ctx.fillRect(COURT.x-10,net-7,COURT.w+20,17);
+ ctx.strokeStyle='#edfff3';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(COURT.x-17,net-8);ctx.lineTo(COURT.x+COURT.w+17,net-8);ctx.stroke();
+ ctx.strokeStyle='#dff8ec8c';ctx.lineWidth=1;for(let x=COURT.x;x<COURT.x+COURT.w;x+=11){ctx.beginPath();ctx.moveTo(x,net-6);ctx.lineTo(x,net+10);ctx.stroke();}
+ roundRect(COURT.x-20,net-14,10,30,3,'#e7f5f4','#8ba8a9');roundRect(COURT.x+COURT.w+11,net-14,10,30,3,'#e7f5f4','#8ba8a9');
+ ctx.fillStyle='#e8fff0b2';ctx.textAlign='center';ctx.font='900 17px system-ui';ctx.fillText('PAREJA RIVAL',W/2,COURT.y+46);ctx.fillText('TU PAREJA',W/2,COURT.y+COURT.h-33);
+ ctx.font='800 11px system-ui';ctx.fillStyle='#9bc2c5';ctx.fillText('10 m',W/2,COURT.y+COURT.h+32);
+}
+function drawZones(){if(state.phase!=='choose')return;
+ for(let i=0;i<3;i++){
+   const x=COURT.x+i*COURT.w/3;
+   ctx.fillStyle=state.zone===i?'#ecff8c34':'#e4fff007';ctx.fillRect(x+2,COURT.y+3,COURT.w/3-4,COURT.h/2-17);
+   ctx.strokeStyle=state.zone===i?'#e4fa93bb':'#b5f3eb28';ctx.lineWidth=2;ctx.strokeRect(x+4,COURT.y+5,COURT.w/3-8,COURT.h/2-21);
+   ctx.fillStyle='#efffe0df';ctx.font='850 20px system-ui';ctx.textAlign='center';ctx.fillText(['↖','↑','↗'][i],x+COURT.w/6,COURT.y+94);
+   ctx.font='850 11px system-ui';ctx.fillText(['IZQUIERDA','CENTRO','DERECHA'][i],x+COURT.w/6,COURT.y+119);
+ }
+}
+// Vista cenital: las parejas miran en sentidos opuestos hacia la red.
+// Por eso la derecha de un rival (mirando hacia abajo) se ve A LA IZQUIERDA
+// de la pantalla; la derecha de un jugador propio se ve a la derecha.
+// R1 (drive rival) usa la lateralidad elegida en configuración; R2 es diestro.
+function playerHand(name,home){
+ if(home)return 'right';
+ return name==='R1'?settings.driveHand:'right';
+}
+function racketScreenSide(name,home){
+ const physicalHand=playerHand(name,home);
+ return (physicalHand==='right'?1:-1)*(home?1:-1);
+}
+function drawFigure(p,name,home,selected=false,ideal=false){
+ const xx=X(p.x),yy=Y(p.y),c=home?'#7bebee':'#ffbf8e';
+ ctx.fillStyle='#03202a80';ctx.beginPath();ctx.ellipse(xx,yy+16,22,8,0,0,Math.PI*2);ctx.fill();
+ if(selected||ideal){ctx.strokeStyle=selected?'#dcff89':'#ebfff8b4';ctx.lineWidth=selected?5:2;ctx.setLineDash(ideal&&!selected?[7,6]:[]);ctx.beginPath();ctx.arc(xx,yy,32,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);}
+ const g=ctx.createRadialGradient(xx-6,yy-8,2,xx,yy,23);g.addColorStop(0,'#fff4dc');g.addColorStop(.5,c);g.addColorStop(1,home?'#0b7c88':'#c46e45');ctx.beginPath();ctx.fillStyle=g;ctx.arc(xx,yy,23,0,2*Math.PI);ctx.fill();ctx.strokeStyle='#fafff6a8';ctx.lineWidth=2;ctx.stroke();
+ ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle=home?'#103844':'#684024';ctx.font='950 17px system-ui';ctx.fillText(name,xx,yy+1);
+ // Insignia de lateralidad para cada rival: D = diestro, Z = zurdo.
+ if(!home){
+   ctx.font='950 11px system-ui';ctx.fillStyle='#ffffff';
+   roundRect(xx-12,yy-45,24,17,5,'#513e37','#fec8a4');
+   ctx.fillStyle='#ffffff';ctx.fillText(playerHand(name,home)==='left'?'Z':'D',xx,yy-36);
+ }
+ // La pala sale de la mano real del jugador. No se espeja toda la figura:
+ // solo brazo, empuñadura y cabeza de la pala cambian de lado.
+ const side=racketScreenSide(name,home),dir=home?-1:1;
+ ctx.lineWidth=3;ctx.strokeStyle='#f4fff7';
+ ctx.beginPath();ctx.moveTo(xx+side*23,yy);ctx.lineTo(xx+side*35,yy-8*dir);ctx.stroke();
+ ctx.beginPath();ctx.ellipse(xx+side*39,yy-15*dir,7,11,side*.5,0,Math.PI*2);ctx.stroke();
+ // Etiqueta RED/FONDO visible para facilitar la decisión táctica.
+ const isNet=home?netHome(p):netAway(p);
+ const label=isNet?'RED':(home?p.y>.8:p.y<.24)?'FONDO':'MEDIA';
+ ctx.textBaseline='alphabetic';ctx.font='850 10px system-ui';ctx.fillStyle='#effef4';roundRect(xx-29,yy+30,58,18,6,'#08242ccc','#8dbab577');ctx.fillText(label,xx,yy+43);
+}
+function drawMovementGuides(){
+ if(state.phase!=='choose'||!state.scenario)return;
+ const s=state.scenario;
+ // Indica el lugar de llegada de la pelota, no un desplazamiento automático.
+ ctx.save();ctx.strokeStyle=s.kind==='lob'?'#ffe0a7':'#ddffac';ctx.lineWidth=3;
+ ctx.beginPath();ctx.arc(X(s.to.x),Y(s.to.y),25,0,Math.PI*2);ctx.stroke();
+ ctx.font='850 12px system-ui';ctx.textAlign='center';ctx.fillStyle='#f5ffe2';ctx.fillText('PELOTA',X(s.to.x),Y(s.to.y)-33);
+ for(let i=0;i<2;i++){
+  const from=state.home[i],to=state.planned[i];if(!to)continue;
+  const aX=X(from.x),aY=Y(from.y),bX=X(to.x),bY=Y(to.y),d=travelDist(i);
+  ctx.strokeStyle=d>travelLimit(i)?'#ff9c9b':'#d8fa85';ctx.lineWidth=i===state.mover?5:3;
+  ctx.setLineDash([11,8]);ctx.beginPath();ctx.moveTo(aX,aY);ctx.lineTo(bX,bY);ctx.stroke();ctx.setLineDash([]);
+  // Marca pequeña de salida: el jugador visible queda EN el destino, no duplicado.
+  ctx.fillStyle='#042730cc';ctx.strokeStyle='#c6f1e6b0';ctx.lineWidth=2;
+  ctx.beginPath();ctx.arc(aX,aY,12,0,2*Math.PI);ctx.fill();ctx.stroke();
+  ctx.fillStyle='#ffffff';ctx.font='800 10px system-ui';ctx.textAlign='center';ctx.fillText('IN',aX,aY+3);
+  const midX=(aX+bX)/2,midY=(aY+bY)/2;
+  ctx.fillStyle=d>travelLimit(i)?'#ffb4af':'#e4ffae';
+  roundRect(midX-24,midY-22,48,18,5,'#092631ed','#bedac399');
+  ctx.fillText(d.toFixed(1)+' m',midX,midY-9);
+ }
+ // Resalta el jugador al que está apuntando el control.
+ if(state.mover!==null){const p=state.planned[state.mover]||state.home[state.mover];ctx.strokeStyle='#f4ffb3';ctx.lineWidth=2.5;ctx.setLineDash([4,6]);ctx.beginPath();ctx.arc(X(p.x),Y(p.y),37,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);}
+ ctx.restore();
+}
+function drawTrajectory(){
+ const a=state.animation;if(!a||!['serve','incoming','outgoing','choose'].includes(state.phase))return;
+ ctx.save();ctx.strokeStyle=a.kind==='lob'?'#ffda89c8':a.kind==='drop'?'#ff9bdad1':a.kind==='chiquita'?'#7ef7d8c8':'#eaffb4b0';ctx.lineWidth=3;ctx.setLineDash(a.kind==='lob'?[7,9]:[11,9]);ctx.beginPath();ctx.moveTo(X(a.from.x),Y(a.from.y));
+ if(a.path){a.path.slice(1).forEach(p=>ctx.lineTo(X(p.x),Y(p.y)));}else ctx.lineTo(X(a.to.x),Y(a.to.y));
+ ctx.stroke();ctx.setLineDash([]);
+ ctx.beginPath();ctx.arc(X(a.to.x),Y(a.to.y),15,0,Math.PI*2);ctx.lineWidth=2;ctx.strokeStyle=a.kind==='lob'?'#ffda89bb':'#e9ffb2a9';ctx.stroke();
+ if(a.kind==='serve'&&a.bounce){
+   const bx=X(a.bounce.x),by=Y(a.bounce.y);
+   ctx.setLineDash([]);ctx.beginPath();ctx.arc(bx,by,10,0,2*Math.PI);ctx.lineWidth=3;ctx.strokeStyle='#f9efad';ctx.stroke();
+   ctx.textAlign='center';ctx.font='900 12px system-ui';ctx.fillStyle='#fff4c0';
+   ctx.fillText('BOTE',bx,by+(a.serveStyle==='glass'?34:29));
+   if(a.serveStyle==='glass'&&a.glassPoint){
+    ctx.fillText('CRISTAL',X(a.glassPoint.x)+(a.glassPoint.x>.5?-48:48),Y(a.glassPoint.y)-20);
+    ctx.beginPath();ctx.arc(X(a.glassPoint.x),Y(a.glassPoint.y),7,0,2*Math.PI);ctx.strokeStyle='#f9efad';ctx.stroke();
+   }else ctx.fillText('T',bx,by-24);
+  }
+ if(a.wall){ctx.fillStyle='#e8ffbc';ctx.font='900 12px system-ui';ctx.textAlign='center';ctx.fillText(a.wall==='glass'?'CRISTAL':'REJA',X(a.to.x)+(a.to.x<.5?47:-47),Y(a.to.y)-14);}
+ if(['lob','chiquita','drop'].includes(a.kind)){
+   ctx.fillStyle=a.kind==='lob'?'#ffe4a5':a.kind==='drop'?'#ffc1e5':'#9efde4';ctx.textAlign='center';ctx.font='900 13px system-ui';ctx.fillText(shotName(a.kind).toUpperCase(),X(a.from.x),Y(a.from.y)-38);
+  }
+ ctx.restore();
+}
+function drawBall(now){
+ if(!state.ball.visible)return;
+ const x=X(state.ball.x),y=Y(state.ball.y),alt=state.ball.h*H;
+ ctx.save();ctx.fillStyle='#052b2c90';ctx.beginPath();ctx.ellipse(x,y+5,12+alt*.15,6+alt*.04,0,0,2*Math.PI);ctx.fill();
+ if(state.phase==='choose'){ctx.strokeStyle='#ddff86';ctx.lineWidth=3;ctx.beginPath();ctx.arc(x,y,24+3*Math.sin(now/210),0,2*Math.PI);ctx.stroke();}
+ ctx.shadowColor='#e9ff9e';ctx.shadowBlur=19;ctx.fillStyle='#e4fc68';ctx.beginPath();ctx.arc(x,y-alt,10.5,0,2*Math.PI);ctx.fill();ctx.shadowBlur=0;ctx.strokeStyle='#9baf41';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(x-2,y-alt-1,8,.4,2.7);ctx.stroke();ctx.restore();
+}
+function drawIntro(){
+ if(state.phase!=='idle'&&state.phase!=='finished')return;
+ ctx.save();ctx.textAlign='center';ctx.fillStyle='#ecffe6e8';ctx.font='950 35px system-ui';ctx.fillText(state.phase==='idle'?'OBSERVAR · ELEGIR · JUGAR':'¡ENTRENAMIENTO COMPLETADO!',W/2,Y(.5)-59);ctx.font='700 16px system-ui';ctx.fillText(state.phase==='idle'?'Plano · globo · chiquita · dejada':'Revisa los puntos y vuelve a entrenar',W/2,Y(.5)-31);ctx.restore();
+}
+function render(now){
+ update(now);courtBase();drawZones();drawTrajectory();drawMovementGuides();
+ state.away.forEach((p,i)=>drawFigure(p,'R'+(i+1),false));
+ const motionT=state.phase==='approach'?clamp((now-state.phaseStart)/state.duration,0,1):1;
+ const homeDisplay=state.phase==='approach'&&state.motion?state.motion.to.map((p,i)=>({x:lerp(state.motion.from[i].x,p.x,motionT),y:lerp(state.motion.from[i].y,p.y,motionT)})):(state.phase==='choose'?state.home.map((p,i)=>state.planned[i]||p):state.home);
+ homeDisplay.forEach((p,i)=>drawFigure(p,'J'+(i+1),true,state.phase==='choose'&&(state.player===i||state.mover===i),state.phase==='choose'&&settings.guided&&state.scenario.ideal===i));
+ drawBall(now);drawIntro();requestAnimationFrame(render);
+}
+function playTap(){try{const A=window.AudioContext||window.webkitAudioContext;if(!A)return;const a=window.__padelSound||(window.__padelSound=new A());if(a.state==='suspended')a.resume();const o=a.createOscillator(),g=a.createGain();o.type='triangle';o.frequency.setValueAtTime(175,a.currentTime);o.frequency.exponentialRampToValueAtTime(95,a.currentTime+.08);g.gain.setValueAtTime(.04,a.currentTime);g.gain.exponentialRampToValueAtTime(.001,a.currentTime+.12);o.connect(g);g.connect(a.destination);o.start();o.stop(a.currentTime+.12);}catch(e){}}
+$('startBtn').addEventListener('click',begin);$('restartBtn').addEventListener('click',begin);$('hitBtn').addEventListener('click',hit);
+$('settingsBtn').addEventListener('click',()=>{if(!['idle','finished'].includes(state.phase))cancelToSettings();$('settings').scrollIntoView({behavior:'smooth'});});
+$('nextPointBtn').addEventListener('click',()=>{if(state.gameWinner){begin();return;}if(state.phase!=='result'||!state.waitingForNext)return;hidePointOverlay();state.waitingForNext=false;nextAfterResult();});
+playerBtns.forEach((b,i)=>b.addEventListener('click',()=>choosePlayer(i)));
+$('clearMoves').addEventListener('click',clearMoves);
+zoneBtns.forEach((b,i)=>b.addEventListener('click',()=>chooseZone(i)));
+shotBtns.forEach(b=>b.addEventListener('click',()=>chooseShot(b.dataset.shot)));
+wallBtns.forEach(b=>b.addEventListener('click',()=>chooseWall(b.dataset.wall)));
+document.querySelectorAll('[data-speed]').forEach(b=>b.addEventListener('click',()=>{settings.speed=b.dataset.speed;document.querySelectorAll('[data-speed]').forEach(v=>v.classList.toggle('active',v===b));}));
+$('guided').addEventListener('change',()=>{settings.guided=$('guided').checked;if(state.phase==='choose')incomingDone();});
+$('pauseBtn').addEventListener('click',()=>{if(!['serve','incoming','approach','outgoing','result'].includes(state.phase))return;if(state.pause){state.phaseStart+=performance.now()-state.pausedAt;state.pause=false;}else{state.pausedAt=performance.now();state.pause=true;}syncUI();});
+const pointerPosition=ev=>{const r=canvas.getBoundingClientRect();return {x:(ev.clientX-r.left)*W/r.width,y:(ev.clientY-r.top)*H/r.height};};
+const normalizedAt=pos=>({x:(pos.x-COURT.x)/COURT.w,y:(pos.y-COURT.y)/COURT.h});
+let drag=null;
+canvas.addEventListener('pointerdown',ev=>{
+ if(state.phase!=='choose'||ev.button>0)return;
+ const pos=pointerPosition(ev);
+ if(pos.x<COURT.x||pos.x>COURT.x+COURT.w||pos.y<COURT.y||pos.y>COURT.y+COURT.h)return;
+ // La parte superior conserva la selección directa de destino del golpe.
+ if(pos.y<Y(.5)){
+  chooseZone(clamp(Math.floor((pos.x-COURT.x)/(COURT.w/3)),0,2));return;
+ }
+ let grabbed=null,min=59;
+ state.home.forEach((p,i)=>{
+  const spot=destinationFor(i);
+  const d=Math.hypot(X(spot.x)-pos.x,Y(spot.y)-pos.y);
+  if(d<min){grabbed=i;min=d;}
+ });
+ if(grabbed===null)return; // No es necesario seleccionar antes "Mover J1" ni tocar el suelo.
+ state.mover=grabbed;
+ drag={pointerId:ev.pointerId,mover:grabbed,start:pos,moved:false};
+ canvas.classList.add('dragging');
+ try{canvas.setPointerCapture(ev.pointerId)}catch(e){}
+ syncUI();ev.preventDefault();
+});
+canvas.addEventListener('pointermove',ev=>{
+ if(!drag||drag.pointerId!==ev.pointerId||state.phase!=='choose')return;
+ const pos=pointerPosition(ev);
+ if(Math.hypot(pos.x-drag.start.x,pos.y-drag.start.y)>5)drag.moved=true;
+ if(drag.moved)planMove(drag.mover,normalizedAt(pos));
+ ev.preventDefault();
+});
+canvas.addEventListener('pointerup',ev=>{
+ if(!drag||drag.pointerId!==ev.pointerId)return;
+ // Tocar al jugador sin moverlo equivale a pedirle que mantenga la posición.
+ if(!drag.moved)planMove(drag.mover,destinationFor(drag.mover));
+ try{canvas.releasePointerCapture(ev.pointerId)}catch(e){}
+ canvas.classList.remove('dragging');drag=null;
+ ev.preventDefault();
+});
+canvas.addEventListener('pointercancel',()=>{canvas.classList.remove('dragging');drag=null;});
+window.addEventListener('keydown',ev=>{
+ if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName)||ev.altKey||ev.ctrlKey||ev.metaKey)return;
+ const key=ev.key.toLowerCase();
+ if(state.phase==='choose'){
+  if(key==='1')choosePlayer(0);if(key==='2')choosePlayer(1);
+  if(key==='a'||key==='arrowleft')chooseZone(0);if(key==='s'||key==='arrowup')chooseZone(1);if(key==='d'||key==='arrowright')chooseZone(2);
+  if(key==='p')chooseShot('flat');if(key==='g')chooseShot('lob');if(key==='q')chooseShot('chiquita');if(key==='e')chooseShot('drop');if(key==='c')chooseWall('glass');if(key==='v')chooseWall('fence');if(key==='n')chooseWall('none');
+  if(key==='enter'){hit();ev.preventDefault();}
+ }else if(key===' '&&['serve','incoming','approach','outgoing','result'].includes(state.phase)){ev.preventDefault();$('pauseBtn').click();}
+});
+// Estado de lectura para diagnosticar y probar el archivo local.
+window.PadelIQ={snapshot:()=>({phase:state.phase,count:state.count,point:state.point,won:state.won,lost:state.lost,good:state.good,gameWinner:state.gameWinner,score:gameScores(),serveSide:state.serveSide,
+ scenario:state.scenario?{kind:state.scenario.kind,ideal:state.scenario.ideal,wasNet:[...state.scenario.wasNet],distances:[...state.scenario.ds],to:clone(state.scenario.to),serveStyle:state.scenario.serveStyle||null,tactical:state.scenario.tactical?{...state.scenario.tactical}:null}:null,
+ servePlan:state.servePlan?{team:state.servePlan.team,style:state.servePlan.style,bounce:clone(state.servePlan.bounce),glassPoint:state.servePlan.glassPoint?clone(state.servePlan.glassPoint):null,to:clone(state.servePlan.to),path:state.servePlan.path.map(clone)}:null,serveHistory:state.serveHistory.map(h=>({team:h.team,player:h.player,side:h.side,style:h.style,bounce:clone(h.bounce)})),
+ home:state.home.map(clone),away:state.away.map(clone),player:state.player,mover:state.mover,planned:state.planned.map(p=>p?clone(p):null),wall:state.wall,serveTeam:state.serveTeam,servePlayer:state.servePlayer,serviceRun:state.serviceRun?{team:state.serviceRun.team,index:state.serviceRun.index,from:clone(state.serviceRun.from),to:clone(state.serviceRun.to)}:null,waitingForNext:state.waitingForNext,lastResult:state.lastResult,lastOutcome:state.pending?{...state.pending}:null}),previewTactic:(home,away,hitter=0,seed=1,style='mixed')=>selectRivalTactic(home,away,hitter,seed,style),version:'8.1'};
+resetPositions();syncUI();requestAnimationFrame(render);
+})();
+</script>
+</body>
+</html>
